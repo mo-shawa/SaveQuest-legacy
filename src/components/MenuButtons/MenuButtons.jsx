@@ -5,7 +5,8 @@ class MenuButtons extends Component {
         return (
             <div className='MenuButtonWrapper'>
             <div className='MenuButtonContainer'>
-                menubuttons
+                <button></button>
+                <button></button>
             </div>
             </div>
         )

@@ -5,8 +5,11 @@ class Stats extends Component {
     render() {
         return (
             <div className='StatsWrapper'>
-            <div className='StatsContainer'>
-                stats
+            <div className='StatsContainer' 
+            >
+                <h4>Strength: 3</h4>
+                <h4>Agility:2</h4>
+                <h4>Intelligence: -2</h4>
             </div>
             </div>
         )

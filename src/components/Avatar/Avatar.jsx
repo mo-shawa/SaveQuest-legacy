@@ -10,6 +10,7 @@ class Avatar extends Component {
             src="https://cdn.discordapp.com/attachments/180730909388046336/931579974845075526/female9.PNG"
             alt="gril"
           />
+          <h2>Level 5 Warlock</h2>
         </div>
       </div>
     );
