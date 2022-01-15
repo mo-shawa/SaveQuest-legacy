@@ -1,0 +1,21 @@
+.avatar {
+    height:90%;
+    width:90%;
+}
+.AvatarWrapper {
+    height:100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Circle {
+    height:90%;
+    width:80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,.1);
+    border-radius: 70%;
+    
+}
