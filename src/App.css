@@ -39,3 +39,7 @@
   background-image: url(/public/Background.jpeg);
   background-size: cover;
 }
+
+.AuthPage{
+  max-width: 600px;
+}

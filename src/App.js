@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Header from "./components/Header/Header"
-import ThreeCanvas from "./components/ThreeCanvas/ThreeCanvas";
+import AuthPage from "./pages/AuthPage/AuthPage";
+import MainAppPage from "./pages/MainAppPage/MainAppPage";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import { Routes, Route, Link } from "react-router-dom";
+
 
 
 class App extends Component {
@@ -22,12 +26,13 @@ class App extends Component {
   render(){;
   return (
     <div className="App">
-      
       <Header />
-      <div className="MainContainer">
-        <Sidebar />
-          <div className="WindowWrapper"></div>
-      </div>
+
+      <Routes>
+        <Route path='auth' element={<AuthPage />} />
+        <Route path='app' element={<MainAppPage />} />
+        <Route path='landing' element={<LandingPage />} />
+      </Routes>
     </div>
   );}
 }
