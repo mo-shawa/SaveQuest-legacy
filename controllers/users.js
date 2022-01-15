@@ -16,3 +16,15 @@ async function create(req,res){
         res.status(400).json(error)
     }
 }
+
+async function login(req,res){
+    try {
+        console.log(req.body)
+        const user = await User.findOne({email: req.body.email})
+        if (req.body.password !== user.password) throw new Error()
+
+        const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: '24h'})
+    } catch (error) {
+
+    }
+}

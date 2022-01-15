@@ -6,12 +6,10 @@ import Header from "../../components/Header/Header"
 export default class MainAppPage extends Component {
     render() {
         return (
-            
                 <div className="MainContainer">
                     <Sidebar />
                     <div className="WindowWrapper"></div>
                 </div>
-            
         )
     }
 }
