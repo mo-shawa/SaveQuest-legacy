@@ -1,0 +1,25 @@
+.StatsWrapper {
+height:100%;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.StatsContainer {
+height:80%;
+width: 85%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+}
+h4 {
+    height:100%;
+    font-size: 14px;
+    padding:0;
+    margin:0;
+    display: flex;
+    align-items: center;
+}

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import "./Header.css"
 import ThreeCanvas from "..//ThreeCanvas/ThreeCanvas";
 
-
 class Header extends Component {
 
     render() {
