@@ -9,7 +9,15 @@
         height:80%;
     width: 85%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    background-color:rgba(255,255,255,.1);
+    flex-direction: column;
+   
+    }
+    button {
+        width:90%;
+        height:28%;
+        font-family: 'Press Start 2P'; 
+        
+
     }
