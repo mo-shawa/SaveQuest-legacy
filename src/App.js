@@ -1,9 +1,23 @@
-import logo from "./logo.svg";
+import React, { Component } from "react";
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Header from "./components/Header/Header"
 
-function App() {
+class App extends Component {
+  state = {
+    user: null,
+  };
+  setUserInState = (incomingUserData) => {
+    this.setState({ user: incomingUserData });
+  };
+  componentDidMount() {
+    let token = localStorage.getItem("token");
+    if (token) {
+      let userDoc = JSON.parse(atob(token.split(".")[1])).user;
+      this.setState({ user: userDoc });
+    }
+  }
+  render(){;
   return (
     <div className="App">
       
@@ -14,7 +28,7 @@ function App() {
           <div className="WindowWrapper"></div>
       </div>
     </div>
-  );
+  );}
 }
 
 export default App;
