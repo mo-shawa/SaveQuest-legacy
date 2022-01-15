@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Header from "./components/Header/Header"
+import ThreeCanvas from "./components/ThreeCanvas/ThreeCanvas";
+
 
 class App extends Component {
   state = {
@@ -22,7 +24,6 @@ class App extends Component {
     <div className="App">
       
       <Header />
-      
       <div className="MainContainer">
         <Sidebar />
           <div className="WindowWrapper"></div>
