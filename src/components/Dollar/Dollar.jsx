@@ -13,6 +13,7 @@ export default function Dollar({...props}) {
     
     
     return (
+      
         <group ref={ref} {...props} dispose={null}>
         <group rotation={[-Math.PI / 2, 0, 0]}>
           <group rotation={[Math.PI / 2, 1, 0]}>
@@ -22,6 +23,7 @@ export default function Dollar({...props}) {
           </group>
         </group>
       </group>
+      
     )
 }
 
