@@ -9,10 +9,21 @@ module.exports = {
 
 async function create(req,res){
     try {
-        const user = await User.create({name: req.body.name, email:req.body.email, password:req.body.password,})
+        console.log("req.body: ", req.body)
+        const user = await User.create(
+            {
+                name: req.body.name, 
+                email:req.body.email, 
+                password:req.body.password,
+            }
+        )
+        console.log('User: ', user)
         const token = jwt.sign({user}, process.env.SECRET,{expiresIn: '24h'})
+        console.log("token: ", token)
+
         res.state(200).json(token)
     } catch (error) {
+        console.log(error)
         res.status(400).json(error)
     }
 }
@@ -24,7 +35,10 @@ async function login(req,res){
         if (req.body.password !== user.password) throw new Error()
 
         const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: '24h'})
+        console.log(token)
+        res.status(200).json(token)
     } catch (error) {
-
+        console.log(error)
+        res.status(400).json(error)
     }
 }
