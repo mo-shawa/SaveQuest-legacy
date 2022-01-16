@@ -1,0 +1,47 @@
+.header {
+    width: 100%;
+    height: 100%;
+    background-color: #4C3779;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    overflow: hidden;
+    border-bottom: 4px solid rgb(20, 0,30);
+}
+@font-face {
+    font-family: 'Press Start 2P';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/pressstart2p/v9/e3t4euO8T-267oIAQAu6jDQyK3nYivN04w.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  }
+
+h1 {
+    color: White;
+    height:100%;
+    margin:0;
+}
+a {
+    color:white;
+    margin:2vw
+    
+}
+.LoginWrapper {
+    display:flex;
+    justify-content: right;
+    align-items: center;
+}
+.Title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height:100%;
+    font-family: "Fantasy5";
+    font-weight: 100;
+    font-size:2.5vh;
+    overflow: hidden;
+    
+}
+.TitleImg {
+    height:60px;
+}

@@ -1,5 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+*{
+    overflow: hidden;
+}
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/pressstart2p/v9/e3t4euO8T-267oIAQAu6jDQyK3nYivN04w.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
 .App {
-  text-align: center;
+  
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-rows:1.1fr 11fr;
+  font-family: 'Press Start 2P'; 
 }
 
 .App-logo {
@@ -7,32 +24,22 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.MainContainer {
+  display: grid;
+  grid-template-columns: 325px 1fr;
+}
+.WindowWrapper {
+  width:100%;
+  height: 100%;
+  background-color: aqua;
+  background-image: url(/public/Background.jpeg);
+  background-size: cover;
+}
+
+.AuthPage{
+  max-width: 600px;
 }

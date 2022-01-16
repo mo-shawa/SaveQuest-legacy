@@ -1,0 +1,29 @@
+.MenuButtonWrapper {
+    height:100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .MenuButtonContainer {
+        height:80%;
+    width: 85%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+   
+    }
+    .btn {
+        width:90%;
+        height:28%;
+        font-family: 'Press Start 2P'; 
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .nes.btn {
+        padding:0;
+    }

@@ -1,25 +1,45 @@
-import logo from "./logo.svg";
+import React, { Component } from "react";
 import "./App.css";
+import Header from "./components/Header/Header"
+import AuthPage from "./pages/AuthPage/AuthPage";
+import MainAppPage from "./pages/MainAppPage/MainAppPage";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+
+
+class App extends Component {
+  state = {
+    user: null,
+  };
+  setUserInState = (incomingUserData) => {
+    this.setState({ user: incomingUserData });
+  };
+  
+  tempLogout = () => {
+    this.setState({user: null})
+  }
+
+  componentDidMount() {
+    let token = localStorage.getItem("token");
+    if (token) {
+      let userDoc = JSON.parse(atob(token.split(".")[1])).user;
+      this.setState({ user: userDoc });
+    }
+  }
+
+  render(){;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn my butt
-        </a>
-      </header>
+      <Header user={this.state.user} />
+
+      <Routes>
+        <Route path='auth'  element={<AuthPage tempLogout={this.tempLogout} setUserInState={this.setUserInState} />} />
+        <Route path='app' element={<MainAppPage />} />
+        <Route path='landing' element={<LandingPage />} />
+      </Routes>
     </div>
-  );
+  );}
 }
 
 export default App;
