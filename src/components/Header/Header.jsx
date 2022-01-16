@@ -19,7 +19,10 @@ class Header extends Component {
                     </Link>
                     </div> 
                 <div className='LoginWrapper'>
-                    <Link to='auth'>Login</Link>
+                    {this.props.user ? 
+                    <Link to='auth'>Logout</Link> 
+                    : <Link to='auth'>Login</Link> 
+                }
                 </div>
 
             </div>

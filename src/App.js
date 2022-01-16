@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import Sidebar from "./components/Sidebar/Sidebar";
 import Header from "./components/Header/Header"
 import AuthPage from "./pages/AuthPage/AuthPage";
 import MainAppPage from "./pages/MainAppPage/MainAppPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 
 
@@ -16,6 +15,11 @@ class App extends Component {
   setUserInState = (incomingUserData) => {
     this.setState({ user: incomingUserData });
   };
+  
+  tempLogout = () => {
+    this.setState({user: null})
+  }
+
   componentDidMount() {
     let token = localStorage.getItem("token");
     if (token) {
@@ -23,13 +27,14 @@ class App extends Component {
       this.setState({ user: userDoc });
     }
   }
+
   render(){;
   return (
     <div className="App">
-      <Header />
+      <Header user={this.state.user} />
 
       <Routes>
-        <Route path='auth' element={<AuthPage />} />
+        <Route path='auth'  element={<AuthPage tempLogout={this.tempLogout} setUserInState={this.setUserInState} />} />
         <Route path='app' element={<MainAppPage />} />
         <Route path='landing' element={<LandingPage />} />
       </Routes>

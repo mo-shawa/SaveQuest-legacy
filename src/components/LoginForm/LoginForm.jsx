@@ -29,9 +29,11 @@ export default class SignUpForm extends Component {
       if (!fetchResponse.ok) throw new Error("Fetch failed - Bad request");
 
       let token = await fetchResponse.json();
+      // localStorage.removeItem('token')
       localStorage.setItem("token", token);
 
       const userDoc = JSON.parse(atob(token.split(".")[1])).user;
+      console.log(userDoc)
       this.props.setUserInState(userDoc);
     } catch (err) {
       console.log("SignupForm error", err);
