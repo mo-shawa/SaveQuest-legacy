@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: 33% 33% 33%;
     overflow: hidden;
+    border-bottom: 4px solid rgb(20, 0,30);
 }
 @font-face {
     font-family: 'Press Start 2P';
@@ -13,31 +14,58 @@
     src: url(https://fonts.gstatic.com/s/pressstart2p/v9/e3t4euO8T-267oIAQAu6jDQyK3nYivN04w.woff2) format('woff2');
     unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
   }
-@font-face {
+  @font-face {
     font-family: "Fantasy";
     src: url(/public/Fonts/IMMORTAL.ttf);
     font-style: normal;
   }
+  @font-face {
+    font-family: "Fantasy2";
+    src: url(/public/Fonts/IMMRTLT_.ttf);
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Fantasy3";
+    src: url(/public/Fonts/ENDOR___.ttf);
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Fantasy4";
+    src: url(/public/Fonts/ENDORALT.ttf);
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Fantasy5";
+    src: url(/public/Fonts/fellowmaiden.ttf);
+    
+  }
 h1 {
     color: White;
+    height:100%;
+    margin:0;
 }
 a {
-    color:white
+    color:white;
+    margin:2vw
     
 }
 .LoginWrapper {
     display:flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
 }
 .Title {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
     height:100%;
-    font-family: "fantasy";
+    font-family: "Fantasy5";
     font-weight: 100;
     font-size:2.5vh;
     overflow: hidden;
     
+}
+.TitleImg {
+    height:60px;
 }

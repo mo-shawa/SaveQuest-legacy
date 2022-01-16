@@ -1,0 +1,26 @@
+#AuthPage {
+   background-color: gray;
+   width: 100vw;
+   display: flex;
+   justify-content: center;
+   background-image: url(/public/Background.jpeg);
+   background-size: cover;
+   
+}
+.LoginContainer {
+    margin-top: 17vh;
+    width:50%;
+    height:50%;
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+    padding:5vh;
+    background-color: rgba(255,255,255,.3);
+    border-radius: 7vh;
+    border: 5px solid rgba(255,255,255,.4)
+    
+}
+.LoginHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

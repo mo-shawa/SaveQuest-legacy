@@ -4,4 +4,6 @@
     background-color: #6157A1;
     display:grid;
     grid-template-rows: 50% 30% 20%;
+    color: black;
+    border-right: 3px solid black;
 }

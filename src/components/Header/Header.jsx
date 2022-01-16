@@ -15,8 +15,11 @@ class Header extends Component {
                 </div>
                 <div className='Title'>
                     <Link to='app'>
-                        <h1>SaveQuest</h1>
+                        {/* <h1>SaveQuest</h1> */}
+                        <img className='TitleImg' src="/Images/cooltext402280913904255.png" alt="fe" srcset="" />
+
                     </Link>
+                    {/* <i class="nes-icon coin is-medium"></i> */}
                     </div> 
                 <div className='LoginWrapper'>
                     <Link to='auth'>Login</Link>
