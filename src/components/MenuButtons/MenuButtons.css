@@ -14,10 +14,16 @@
     flex-direction: column;
    
     }
-    button {
+    .btn {
         width:90%;
         height:28%;
         font-family: 'Press Start 2P'; 
         
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
+    }
+    .nes.btn {
+        padding:0;
     }

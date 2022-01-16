@@ -8,7 +8,7 @@ class Sidebar extends Component {
 
     render() {
         return (
-            <div className='Sidebar'>
+            <div className='Sidebar ' id="NoPadding">
                 <Avatar />
                 <Stats />
                 <MenuButtons />

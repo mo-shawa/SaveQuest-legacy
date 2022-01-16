@@ -5,12 +5,17 @@ class Avatar extends Component {
   render() {
     return (
       <div className="AvatarWrapper">
-        <div className="Circle">
+        <div id="NoPadding"className="nes-container is-rounded AvatarContainer ">
+          <div className="Circle">
+        
           <img className="Avatar"
-            src="https://cdn.discordapp.com/attachments/180730909388046336/931579974845075526/female9.PNG"
+            src="Images/female5.png"
             alt="gril"
           />
-          <h2>Level 5 Warlock</h2>
+          
+          <h2>Level: 5 </h2>
+          
+          </div>
         </div>
       </div>
     );
