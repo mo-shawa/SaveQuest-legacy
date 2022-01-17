@@ -18,9 +18,18 @@ function Card(props) {
           </div>
         </div>
         <div className="CardBtns" id="NoPadding">
-            <button className="nes-btn CardBtn">View Expenses</button>
-            <button className="nes-btn CardBtn">View Expenses</button>
-            
+          <button
+            onClick={() => props.viewModalOpen(true)}
+            className="nes-btn CardBtn"
+          >
+            View Expenses
+          </button>
+          <button
+            onClick={() => props.modalOpen(true)}
+            className="nes-btn CardBtn"
+          >
+            Log Expense
+          </button>
         </div>
       </div>
     </div>
