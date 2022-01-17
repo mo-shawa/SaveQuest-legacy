@@ -3,8 +3,16 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import Header from "../../components/Header/Header";
 import Card from "../../components/Card/Card";
 // import '../../App.css'
+import ManageBudgetModal from "../../components/ManageBudgetModal/ManageBudgetModal";
+
 
 export default class MainAppPage extends Component {
+  state={
+    ManageBudgetModalOpen:false,
+  }
+  OpenManageBudgetModal = (change) => {
+    change === true ? this.setState({ManageBudgetModalOpen: true}) : this.setState({ManageBudgetModalOpen: false})
+  }
   render() {
     return (
       <div className="MainContainer">
@@ -39,6 +47,9 @@ export default class MainAppPage extends Component {
             </div>
           </div>
         </div>
+        
+        <ManageBudgetModal modalOpen = {this.OpenManageBudgetModal} isModelOpen = {this.state.ManageBudgetModalOpen} /> 
+        
       </div>
     );
   }
