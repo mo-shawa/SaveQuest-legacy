@@ -21,7 +21,7 @@ class Header extends Component {
                     </Link>
                     {/* <i class="nes-icon coin is-medium"></i> */}
                     </div> 
-                <div className='LoginWrapper'>
+                <div className='LoginWrapper' id='HeaderLogin'>
                     {this.props.user ? 
                     <Link to='auth'>Logout</Link> 
                     : <Link to='auth'>Login</Link> 

@@ -4,6 +4,7 @@ import "./Avatar.css"
 class Avatar extends Component {
   render() {
     return (
+      <div className="AvatarWrapperWrapper">
       <div className="AvatarWrapper">
         <div id="NoPadding"className="nes-container is-rounded AvatarContainer ">
           <div className="Circle">
@@ -17,6 +18,7 @@ class Avatar extends Component {
           
           </div>
         </div>
+      </div>
       </div>
     );
   }
