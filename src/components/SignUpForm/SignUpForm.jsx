@@ -1,32 +1,39 @@
-import { Component } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SignUpForm.css"
 
-export default class SignUpForm extends Component {
-  state = {
-    name: "",
-    email: "",
-    password: "",
-    confirm: "",
-    error: "",
+export default function SignUpForm(props) {
+
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirm: '',
+    error: ''
+  })
+
+
+  const handleChange = (evt) => {
+    const { name, value } = evt.target
+
+    setForm((state) => {
+      return {
+        ...state,
+        [name]: value
+      }
+    })
   };
 
-  handleChange = (evt) => {
-    this.setState({
-      [evt.target.name]: evt.target.value,
-      error: "",
-    });
-  };
-
-  handleSubmit = async (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
       const fetchResponse = await fetch("/api/users/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: this.state.name,
-          email: this.state.email,
-          password: this.state.password,
+          name: form.name,
+          email: form.email,
+          password: form.password,
         }),
       });
 
@@ -36,62 +43,65 @@ export default class SignUpForm extends Component {
       localStorage.setItem("token", token);
 
       const userDoc = JSON.parse(atob(token.split(".")[1])).user;
-      this.props.setUserInState(userDoc);
+      props.setUserInState(userDoc);
     } catch (err) {
       console.log("SignupForm error", err);
-      this.setState({ error: "Sign Up Failed - Try Again" });
+      setForm((state) => {
+        return {
+          ...state, error: "Sign Up Failed - Try Again"
+        }
+      });
     }
   };
 
-  render() {
-    const disable = this.state.password !== this.state.confirm;
-    return (
-      <div>
-        <div className="form-container">
-          <form className="LoginForm" autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name
+  const disable = form.password !== form.confirm;
+  return (
+    <div>
+      <div className="form-container">
+        <form className="LoginForm" autoComplete="off" onSubmit={handleSubmit}>
+          <label>Name
             <input
               type="text"
               name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
+              value={form.name}
+              onChange={handleChange}
               required
             />
-            </label>
-            <label>Email
+          </label>
+          <label>Email
             <input
               type="email"
               name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
+              value={form.email}
+              onChange={handleChange}
               required
             />
-            </label>
-            <label>Password
+          </label>
+          <label>Password
             <input
               type="password"
               name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
+              value={form.password}
+              onChange={handleChange}
               required
             />
-            </label>
-            <label>Confirm
+          </label>
+          <label>Confirm
             <input
               type="password"
               name="confirm"
-              value={this.state.confirm}
-              onChange={this.handleChange}
+              value={form.confirm}
+              onChange={handleChange}
               required
             />
-            </label>
-            <button type="submit" disabled={disable}>
-              SIGN UP
-            </button>
-          </form>
-        </div>
-        <p className="error-message">&nbsp;{this.state.error}</p>
+          </label>
+          <button type="submit" disabled={disable}>
+            SIGN UP
+          </button>
+        </form>
+        <p className="error-message">&nbsp;{form.error}</p>
       </div>
-    );
-  }
+    </div>
+  );
+
 }
