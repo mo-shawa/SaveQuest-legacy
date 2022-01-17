@@ -1,48 +1,51 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header"
 import AuthPage from "./pages/AuthPage/AuthPage";
 import MainAppPage from "./pages/MainAppPage/MainAppPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 
 
-class App extends Component {
-  state = {
-    user: null,
+
+function App() {
+
+  const [user, setUser] = useState(null)
+
+  const navigate = useNavigate()
+
+  const setUserInState = (incomingUserData) => {
+    setUser(incomingUserData);
   };
-  setUserInState = (incomingUserData) => {
-    this.setState({ user: incomingUserData });
-  };
 
-  userLogout = () => {
-    this.setState({ user: null })
+  const userLogout = () => {
+    setUser(null)
     localStorage.removeItem('token')
   }
 
-  componentDidMount() {
-    let token = localStorage.getItem("token");
+  useEffect(() => {
+    let token = localStorage.getItem('token')
     if (token) {
-      let userDoc = JSON.parse(atob(token.split(".")[1])).user;
-      this.setState({ user: userDoc });
-    }
-  }
+      //if token is found but expired, redirect to login here
+      let userDoc = JSON.parse(atob(token.split('.')[1])).user;
+      setUser(userDoc)
+      navigate('/app')
+    } // would navigate to landing here if no token
+  }, [])
 
-  render() {
-    ;
-    return (
-      <div className="App">
-        <Header user={this.state.user} />
+  return (
+    <div className="App">
+      <Header user={user} />
 
-        <Routes>
-          <Route path='auth' element={<AuthPage userLogout={this.userLogout} setUserInState={this.setUserInState} />} />
-          <Route path='app' element={<MainAppPage />} />
-          <Route path='landing' element={<LandingPage />} />
-        </Routes>
-      </div>
-    );
-  }
+      <Routes>
+        <Route path='/auth' element={<AuthPage userLogout={userLogout} setUserInState={setUserInState} />} />
+        <Route path='/app' element={<MainAppPage />} />
+        <Route path='/landing' element={<LandingPage />} />
+      </Routes>
+    </div>
+  );
+
 }
 
 export default App;
