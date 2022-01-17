@@ -5,7 +5,6 @@ import AuthPage from "./pages/AuthPage/AuthPage";
 import MainAppPage from "./pages/MainAppPage/MainAppPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import { Routes, Route } from "react-router-dom";
-import { token } from "morgan";
 
 
 
