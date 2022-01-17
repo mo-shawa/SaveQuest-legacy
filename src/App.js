@@ -5,6 +5,7 @@ import AuthPage from "./pages/AuthPage/AuthPage";
 import MainAppPage from "./pages/MainAppPage/MainAppPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import { Routes, Route } from "react-router-dom";
+import { token } from "morgan";
 
 
 
@@ -15,9 +16,10 @@ class App extends Component {
   setUserInState = (incomingUserData) => {
     this.setState({ user: incomingUserData });
   };
-  
-  tempLogout = () => {
-    this.setState({user: null})
+
+  userLogout = () => {
+    this.setState({ user: null })
+    localStorage.removeItem('token')
   }
 
   componentDidMount() {
@@ -28,18 +30,20 @@ class App extends Component {
     }
   }
 
-  render(){;
-  return (
-    <div className="App">
-      <Header user={this.state.user} />
+  render() {
+    ;
+    return (
+      <div className="App">
+        <Header user={this.state.user} />
 
-      <Routes>
-        <Route path='auth'  element={<AuthPage tempLogout={this.tempLogout} setUserInState={this.setUserInState} />} />
-        <Route path='app' element={<MainAppPage />} />
-        <Route path='landing' element={<LandingPage />} />
-      </Routes>
-    </div>
-  );}
+        <Routes>
+          <Route path='auth' element={<AuthPage userLogout={this.userLogout} setUserInState={this.setUserInState} />} />
+          <Route path='app' element={<MainAppPage />} />
+          <Route path='landing' element={<LandingPage />} />
+        </Routes>
+      </div>
+    );
+  }
 }
 
 export default App;

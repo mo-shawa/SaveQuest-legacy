@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./LoginForm.css"
+import { useNavigate } from "react-router-dom";
 
 export default function SignUpForm(props) {
 
@@ -58,7 +59,7 @@ export default function SignUpForm(props) {
         <form className="LoginForm" autoComplete="off">
           <label>Email:</label>
           <input
-            type="text"
+            type="tex`t"
             name="email"
             value={form.email}
             onChange={handleChange}
