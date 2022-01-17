@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SignUpForm.css"
 
-export default function SignUpForm(props) {
+function SignUpForm(props) {
 
   const [form, setForm] = useState({
     name: '',
@@ -105,3 +105,5 @@ export default function SignUpForm(props) {
   );
 
 }
+
+export default SignUpForm;
