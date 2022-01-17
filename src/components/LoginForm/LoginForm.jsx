@@ -10,6 +10,8 @@ export default function SignUpForm(props) {
     error: ''
   })
 
+  const navigate = useNavigate()
+
   const handleChange = (evt) => {
     const { name, value } = evt.target
 
@@ -42,6 +44,7 @@ export default function SignUpForm(props) {
       const userDoc = JSON.parse(atob(token.split(".")[1])).user;
       console.log(userDoc)
       props.setUserInState(userDoc);
+      navigate('../app')
     } catch (err) {
       console.log("SignupForm error", err);
       setForm((state) => {
