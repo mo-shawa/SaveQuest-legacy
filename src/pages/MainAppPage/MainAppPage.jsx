@@ -11,11 +11,13 @@ export default class MainAppPage extends Component {
     LogExpenseModalOpen: false,
     ViewExpenseModalOpen: false,
     AllExpenseModalOpen: false,
-    ManageBudgetModalOpen:false,
+    ManageBudgetModalOpen: false,
   };
   OpenManageBudgetModal = (change) => {
-    change === true ? this.setState({ManageBudgetModalOpen: true}) : this.setState({ManageBudgetModalOpen: false})
-  }
+    change === true
+      ? this.setState({ ManageBudgetModalOpen: true })
+      : this.setState({ ManageBudgetModalOpen: false });
+  };
   triggerLogExpenseModalOpen = (change) => {
     change === true
       ? this.setState({ LogExpenseModalOpen: true })
@@ -37,7 +39,10 @@ export default class MainAppPage extends Component {
   render() {
     return (
       <div className="MainContainer">
-        <Sidebar expenseModalOpen={this.triggerViewExpenseModalOpen} modalOpen = {this.OpenManageBudgetModal}/>
+        <Sidebar
+          expenseModalOpen={this.triggerViewExpenseModalOpen}
+          modalOpen={this.OpenManageBudgetModal}
+        />
         <div className="WindowWrapper">
           <div className="TotalBudgetWrapper">
             <div className="TotalBudgetContainer nes-container" id="NoPadding">
@@ -78,15 +83,19 @@ export default class MainAppPage extends Component {
             isModalOpen={this.state.LogExpenseModalOpen}
           />
         </div>
-        <div className="view-expense">
 
-          <ViewExpenseModal
-            viewModalOpen={this.triggerViewExpenseModalOpen}
-            isModalOpen={this.state.ViewExpenseModalOpen}
-          />
-          <ManageBudgetModal modalOpen = {this.OpenManageBudgetModal} isModalOpen = {this.state.ManageBudgetModalOpen} /> 
-          <AllExpensesModal isModalOpen = {this.state.ManageBudgetModalOpen}  expenseModalOpen = {this.OpenManageBudgetModal} />
-        </div>
+        <ViewExpenseModal
+          viewModalOpen={this.triggerViewExpenseModalOpen}
+          isModalOpen={this.state.ViewExpenseModalOpen}
+        />
+        <ManageBudgetModal
+          modalOpen={this.OpenManageBudgetModal}
+          isModalOpen={this.state.ManageBudgetModalOpen}
+        />
+        <AllExpensesModal
+          isModalOpen={this.state.AllExpenseModalOpen}
+          expenseModalOpen={this.triggerAllExpenseModalOpen}
+        />
       </div>
     );
   }

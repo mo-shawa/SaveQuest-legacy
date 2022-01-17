@@ -5,7 +5,7 @@ function ManageBudgetModal(props) {
     
   return (
     <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg" }>
-      <div className="modal">
+      <div className="modal nes-container is-primary">
         <form action="/" method="post">
           <h2>Enter Your New Goal</h2>
           <label for="goal">Goal: </label>
