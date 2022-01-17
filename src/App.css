@@ -15,8 +15,13 @@
   height: 100vh;
   width: 100%;
   display: grid;
-  grid-template-rows:1.1fr 11fr;
+  grid-template-rows:93.17px 11fr;
   font-family: 'Press Start 2P'; 
+}
+@media only screen and (min-height: 1200px) {
+  .App {
+    grid-template-Rows: 110px 1fr;
+  }
 }
 
 .App-logo {
@@ -30,16 +35,73 @@
 
 .MainContainer {
   display: grid;
-  grid-template-columns: 325px 1fr;
+  grid-template-columns: 400px 1fr;
 }
+@media only screen and (min-width: 2000px) {
+  .MainContainer {
+    grid-template-columns: 500px 1fr;
+  }
+}
+
 .WindowWrapper {
   width:100%;
   height: 100%;
   background-color: aqua;
   background-image: url(/public/Background.jpeg);
   background-size: cover;
+  display: grid;
+  grid-template-rows:1.4fr 4fr;
 }
+.TotalBudgetWrapper{
+display:flex;
+justify-content: center;
+align-items: center;
+}
+.TotalBudgetContainer{
+  height: 70%;
+  width:70%;
+  background-color: rgba(228, 209, 253, 0.9);
+  display: grid;
+  grid-template-rows: 40% 60%;
+}
+.TotalBudgetTitle {
+  font-size: 32px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.TotalBudgetProgress{
+  display: Grid;
+  grid-template-rows: 2fr 7fr;
+}
+.TotalBudgetValue{
+  display: flex;
+  justify-content: right;
+  width:90%
+}
+.TotalBudgetBar{
+  
+}
+#Margin{
+  margin:0 3vw;
+  margin-top: 1vh;
+  width:90%;
+  height: 60%;
 
+  
+}
+#NoPadding{
+  padding:0;
+}
 .AuthPage{
   max-width: 600px;
+}
+#HeaderLogin{
+  font-size: 19px;
+}
+@media only screen and (min-height: 1200px) {
+  #HeaderLogin{
+    font-size: 21px;
+  }
 }

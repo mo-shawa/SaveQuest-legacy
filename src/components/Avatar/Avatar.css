@@ -1,33 +1,41 @@
-
-.AvatarWrapper {
+.AvatarWrapperWrapper {
     height:100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.AvatarContainer {
+.AvatarWrapper {
     height:95%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.AvatarContainer {
+    height:90%;
     width:80%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(150, 90,255);
+    background-color: rgba(255, 208, 90, 0.671);
     margin:0;
     padding:0;
     display: flex;
     flex-direction: column;
+    border-image: none;
     
     overflow: hidden;
 }
+
 .Circle {
     height:100%;
     width:100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255,255,.5);
-    border-radius: 70%;
+    background-color: rgba(255, 255,255,.6);
+    
     
     flex-direction: column;
     
@@ -48,7 +56,7 @@ h2 {
     text-align: center;
 }
 .Avatar {
-    height:40%;
+    height:45%;
     
     
 }
