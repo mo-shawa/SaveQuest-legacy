@@ -16,7 +16,7 @@ export default class MainAppPage extends Component {
   render() {
     return (
       <div className="MainContainer">
-        <Sidebar />
+        <Sidebar modalOpen = {this.OpenManageBudgetModal}/>
         <div className="WindowWrapper">
           <div className="TotalBudgetWrapper">
             <div className="TotalBudgetContainer nes-container" id="NoPadding">
@@ -48,7 +48,7 @@ export default class MainAppPage extends Component {
           </div>
         </div>
         
-        <ManageBudgetModal modalOpen = {this.OpenManageBudgetModal} isModelOpen = {this.state.ManageBudgetModalOpen} /> 
+        <ManageBudgetModal modalOpen = {this.OpenManageBudgetModal} isModalOpen = {this.state.ManageBudgetModalOpen} /> 
         
       </div>
     );

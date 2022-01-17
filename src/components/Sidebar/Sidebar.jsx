@@ -11,7 +11,7 @@ class Sidebar extends Component {
             <div className='Sidebar ' id="NoPadding">
                 <Avatar />
                 <Stats />
-                <MenuButtons />
+                <MenuButtons modalOpen = {this.props.modalOpen} />
             </div>
         )
     }

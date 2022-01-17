@@ -4,7 +4,7 @@ import "./ManageBudgetModal.css"
 function ManageBudgetModal(props) {
     
   return (
-    <div className={props.ManageBudgetModalOpen ? "modal-bg bg-active" : "modal-bg" }>
+    <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg" }>
       <div className="modal">
         <form action="/" method="post">
           <h2>Enter Your New Goal</h2>

@@ -6,7 +6,7 @@ class MenuButtons extends Component {
             <div className='MenuButtonWrapper'>
             <div className='MenuButtonContainer'>
                 <button className='nes-btn btn'> Expenses </button>
-                <button className='nes-btn btn'>Budget</button>
+                <button onClick={() => this.props.modalOpen(true)} className='nes-btn btn'>Budget</button>
             </div>
             </div>
         )
