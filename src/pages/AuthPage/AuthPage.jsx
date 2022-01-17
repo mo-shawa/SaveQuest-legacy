@@ -29,8 +29,8 @@ export default class AuthPage extends React.Component {
               <SignUpForm setUserInState={this.props.setUserInState} />
             )}
           </div>
+          <button className="nes-btn" onClick={() => this.props.userLogout()}>LOGOUT</button>
         </div>
-        {/* <button onClick={() => this.props.tempLogout()}>LOGOUT</button> */}
       </div>
     );
   }
