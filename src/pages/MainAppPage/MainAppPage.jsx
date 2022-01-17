@@ -4,14 +4,17 @@ import Header from "../../components/Header/Header";
 import Card from "../../components/Card/Card";
 import LogExpenseModal from "../../components/LogExpense/LogExpense";
 import ViewExpenseModal from "../../components/ViewExpenses/ViewExpenses";
-
+import ManageBudgetModal from "../../components/ManageBudgetModal/ManageBudgetModal";
 export default class MainAppPage extends Component {
   state = {
     LogExpenseModalOpen: false,
     ViewExpenseModalOpen: false,
     AllExpenseModalOpen: false,
+    ManageBudgetModalOpen:false,
   };
-
+  OpenManageBudgetModal = (change) => {
+    change === true ? this.setState({ManageBudgetModalOpen: true}) : this.setState({ManageBudgetModalOpen: false})
+  }
   triggerLogExpenseModalOpen = (change) => {
     change === true
       ? this.setState({ LogExpenseModalOpen: true })
@@ -33,7 +36,7 @@ export default class MainAppPage extends Component {
   render() {
     return (
       <div className="MainContainer">
-        <Sidebar expenseModalOpen={this.expenseModalOpen} />
+        <Sidebar expenseModalOpen={this.expenseModalOpen} modalOpen = {this.OpenManageBudgetModal}/>
         <div className="WindowWrapper">
           <div className="TotalBudgetWrapper">
             <div className="TotalBudgetContainer nes-container" id="NoPadding">
@@ -75,10 +78,12 @@ export default class MainAppPage extends Component {
           />
         </div>
         <div className="view-expense">
+          
           <ViewExpenseModal
             viewModalOpen={this.triggerViewExpenseModalOpen}
             isModalOpen={this.state.ViewExpenseModalOpen}
           />
+          <ManageBudgetModal modalOpen = {this.OpenManageBudgetModal} isModalOpen = {this.state.ManageBudgetModalOpen} /> 
         </div>
       </div>
     );

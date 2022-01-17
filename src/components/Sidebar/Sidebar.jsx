@@ -10,7 +10,7 @@ class Sidebar extends Component {
       <div className="Sidebar " id="NoPadding">
         <Avatar />
         <Stats />
-        <MenuButtons expenseModalOpen={this.props.expenseModalOpen} />
+        <MenuButtons expenseModalOpen={this.props.expenseModalOpen} modalOpen = {this.props.modalOpen}/>
       </div>
     );
   }

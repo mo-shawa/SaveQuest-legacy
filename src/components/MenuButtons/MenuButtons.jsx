@@ -11,7 +11,7 @@ class MenuButtons extends Component {
           >
             Expenses
           </button>
-          <button className="nes-btn btn">Budget</button>
+          <button onClick={() => this.props.modalOpen(true)} className='nes-btn btn'>Budget</button>
         </div>
       </div>
     );
