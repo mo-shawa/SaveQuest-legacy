@@ -4,20 +4,34 @@ import "./AllExpensesModal.css"
 function AllExpensesModal(props) {
     
   return (
-    <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg" }>
-      <div className="BigModal">
-        <form action="/" method="post" className="BigModalForm">
-          <h2>All Expenses</h2>
-          <label for="goal">Goal: </label>
-          <input id="modal-input" type="text" name="activity" />
-          <button className="submit" type="submit">
-            Submit
-          </button>
-
+    <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg " }>
+      <div className="BigModal nes-container">
+        <h2 className="ModalHeader">All Expenses</h2>
           <div className="modal-close">
             <span onClick={() => props.expenseModalOpen(false)}>x</span>
           </div>
-        </form>
+          <div className="AllExpenseWrapper">
+          
+              <table>
+                  <tr>
+                  <th>Item</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  </tr>
+                  <tr>
+                      <td>Anime Pillow</td>
+                      <td>Yesterday</td>
+                      <td>200$</td>
+                  </tr>
+                  <tr>
+                      <td>Anime Pillow</td>
+                      <td>Yesterday</td>
+                      <td>200$</td>
+                  </tr>
+              </table>
+          
+          
+        </div>
       </div>
     </div>
   );
