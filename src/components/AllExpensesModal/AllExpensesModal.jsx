@@ -5,9 +5,9 @@ function AllExpensesModal(props) {
     
   return (
     <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg" }>
-      <div className="modal">
-        <form action="/" method="post">
-          <h2>Enter Your New Goal</h2>
+      <div className="BigModal">
+        <form action="/" method="post" className="BigModalForm">
+          <h2>All Expenses</h2>
           <label for="goal">Goal: </label>
           <input id="modal-input" type="text" name="activity" />
           <button className="submit" type="submit">

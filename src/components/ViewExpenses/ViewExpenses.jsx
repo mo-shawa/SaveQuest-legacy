@@ -4,7 +4,7 @@ import "./ViewExpenses.css";
 function ViewExpenseModal(props) {
   return (
     <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg"}>
-      <div className="modal">
+      <div className="SmallModal">
         <table>
           <tbody>
             <tr>
