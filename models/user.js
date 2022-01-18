@@ -43,4 +43,12 @@ const userSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('User', userSchema);
+const UserModel = mongoose.model('User', userSchema)
+const CategoryModel = mongoose.model('Category', categorySchema)
+const ExpenseModel = mongoose.model('Expense', expenseSchema)
+
+module.exports = {
+  UserModel,
+  CategoryModel,
+  ExpenseModel
+}

@@ -1,4 +1,4 @@
-const User = require('../models/user')
+const { UserModel } = require('../models/user')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const SALT_ROUNDS = 6
@@ -13,7 +13,7 @@ async function create(req, res) {
     try {
 
         const hashedPassword = await bcrypt.hash(req.body.password, SALT_ROUNDS)
-        const user = await User.create(
+        const user = await UserModel.create(
             {
                 name: req.body.name,
                 email: req.body.email,
@@ -53,12 +53,13 @@ async function create(req, res) {
 
 async function login(req, res) {
     try {
-        const user = await User.findOne({ email: req.body.email })
+        const user = await UserModel.findOne({ email: req.body.email })
         if (!(await bcrypt.compare(req.body.password, user.password))) throw new Error()
 
         const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: '24h' })
         res.status(200).json(token)
     } catch (error) {
+        console.log(error.message)
         res.status(400).json(error.message)
     }
 }
