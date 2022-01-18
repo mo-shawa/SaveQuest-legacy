@@ -6,12 +6,37 @@ import LogExpenseModal from "../../components/LogExpense/LogExpense";
 import ViewExpenseModal from "../../components/ViewExpenses/ViewExpenses";
 import ManageBudgetModal from "../../components/ManageBudgetModal/ManageBudgetModal";
 import AllExpensesModal from "../../components/AllExpensesModal/AllExpensesModal";
+
 export default class MainAppPage extends Component {
   state = {
     LogExpenseModalOpen: false,
     ViewExpenseModalOpen: false,
     AllExpenseModalOpen: false,
     ManageBudgetModalOpen: false,
+
+    test: {
+      labels: ["Food", "Housing", "Entertainment", "Crack", "Misc"],
+      datasets: [
+        {
+          label: "Rainfall",
+          backgroundColor: [
+            "#B21F00",
+            "#C9DE00",
+            "#2FDE00",
+            "#00A6B4",
+            "#6800B4",
+          ],
+          hoverBackgroundColor: [
+            "#501800",
+            "#4B5000",
+            "#175000",
+            "#003350",
+            "#35014F",
+          ],
+          data: [65, 59, 40, 81, 56],
+        },
+      ],
+    },
   };
   OpenManageBudgetModal = (change) => {
     change === true
@@ -89,6 +114,7 @@ export default class MainAppPage extends Component {
           isModalOpen={this.state.ViewExpenseModalOpen}
         />
         <ManageBudgetModal
+          test={this.state.test}
           modalOpen={this.OpenManageBudgetModal}
           isModalOpen={this.state.ManageBudgetModalOpen}
         />

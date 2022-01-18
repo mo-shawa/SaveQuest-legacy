@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./ManageBudgetModal.css";
+import { Doughnut } from "react-chartjs-2";
+import "chart.js/auto";
 
 function ManageBudgetModal(props) {
   return (
@@ -11,16 +13,31 @@ function ManageBudgetModal(props) {
         </div>
         <div className="ModalDivider">
           <div className="ModaLinksWrapper">
+            <ul>
+              <li>New Item</li>
+              <li>Edit Budgets</li>
+              <hr />
               <ul>
-                  <li>New Item</li>
-                  <li>Edit Budgets</li>
-                  <hr />
-                  <ul>
-                      <li></li>
-                  </ul>
+                <li></li>
               </ul>
+            </ul>
           </div>
-          <div className="PiChart">Pi</div>
+          <div className="PiChart">
+            <Doughnut
+              data={props.test}
+              options={{
+                title: {
+                  display: true,
+                  text: "Average Rainfall per month",
+                  fontSize: 20,
+                },
+                legend: {
+                  display: true,
+                  position: "right",
+                },
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
