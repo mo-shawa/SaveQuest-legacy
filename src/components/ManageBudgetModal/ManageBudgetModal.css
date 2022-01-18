@@ -4,7 +4,7 @@
     left:0; 
     width:100%;
     height:100vh;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.6);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,13 +16,34 @@
     visibility: visible;
     opacity:1; 
 }
-.modal{
+.BigModal{
     position: relative;
-    background-color: rgb(4, 6, 88);
+    background-color: #C5B6D8;
     width: 70%;
     height:70%;
-    border-radius: 3vh;
-    border: 5px solid rgb(190, 190, 190);
+    border: 5px solid black;
+    display:grid;
+    grid-template-rows: 1fr 4fr;
+}
+.ModalHeader {
+    font-size: 28px;
+    color: rgb(27, 27, 27);
+}
+.ModalDivider {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.PiChart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.SmallModal{
+    position: relative;
+    background-color: #C5B6D8;
+    width: 50%;
+    height:70%;
+    border: 5px solid black;
     display:flex;
     flex-direction: column;
     justify-content: space-around;
@@ -46,16 +67,24 @@
     align-items: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
 }
-form{
+.BigModalForm{
     height: 100%;
     width:100%;
     position: relative;
-    background-color: rgb(4, 6, 88);
-    color:white;
+    background-color: #C5B6D8;
+    color:black;
     border-radius: 3vh;
     
     display:flex;
     flex-direction: column;
     justify-content: space-around;
     align-items:center;
+}
+hr {
+    border:2px solid black;
+    
+    margin-right: 6vw;
+}
+li {
+    margin: 1.5vh 0;
 }

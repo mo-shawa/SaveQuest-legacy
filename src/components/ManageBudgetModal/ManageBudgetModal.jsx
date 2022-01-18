@@ -1,23 +1,27 @@
-import React, {useState} from "react";
-import "./ManageBudgetModal.css"
+import React, { useState } from "react";
+import "./ManageBudgetModal.css";
 
 function ManageBudgetModal(props) {
-    
   return (
-    <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg" }>
-      <div className="modal nes-container is-primary">
-        <form action="/" method="post">
-          <h2>Enter Your New Goal</h2>
-          <label for="goal">Goal: </label>
-          <input id="modal-input" type="text" name="activity" />
-          <button className="submit" type="submit">
-            Submit
-          </button>
-
-          <div className="modal-close">
-            <span onClick={() => props.modalOpen(false)}>x</span>
+    <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg"}>
+      <div className="BigModal nes-container is-primary">
+        <h2 className="ModalHeader">Manage Budget</h2>
+        <div className="modal-close">
+          <span onClick={() => props.modalOpen(false)}>x</span>
+        </div>
+        <div className="ModalDivider">
+          <div className="ModaLinksWrapper">
+              <ul>
+                  <li>New Item</li>
+                  <li>Edit Budgets</li>
+                  <hr />
+                  <ul>
+                      <li></li>
+                  </ul>
+              </ul>
           </div>
-        </form>
+          <div className="PiChart">Pi</div>
+        </div>
       </div>
     </div>
   );

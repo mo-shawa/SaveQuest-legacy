@@ -40,7 +40,7 @@ export default class MainAppPage extends Component {
     return (
       <div className="MainContainer">
         <Sidebar
-          expenseModalOpen={this.triggerViewExpenseModalOpen}
+          expenseModalOpen={this.triggerAllExpenseModalOpen}
           modalOpen={this.OpenManageBudgetModal}
         />
         <div className="WindowWrapper">

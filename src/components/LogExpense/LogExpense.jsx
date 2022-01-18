@@ -4,7 +4,7 @@ import "./LogExpense.css";
 function LogExpenseModal(props) {
   return (
     <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg"}>
-      <div className="modal">
+      <div className="SmallModal">
         <form action="/" method="post">
           <h1>Log Expense</h1>
           <label>Item:</label>
