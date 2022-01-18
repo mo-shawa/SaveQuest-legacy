@@ -14,7 +14,7 @@ function ManageBudgetModal(props) {
         <div className="ModalDivider">
           <div className="ModaLinksWrapper">
             <ul>
-              <li>New Item</li>
+              <button className="nes-btn" onClick={() => props.createModalOpen(true) }>New Item +</button>
               <li>Edit Budgets</li>
               <hr />
               <ul>
