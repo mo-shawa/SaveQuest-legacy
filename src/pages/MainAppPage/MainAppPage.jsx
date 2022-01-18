@@ -6,6 +6,8 @@ import LogExpenseModal from "../../components/LogExpense/LogExpense";
 import ViewExpenseModal from "../../components/ViewExpenses/ViewExpenses";
 import ManageBudgetModal from "../../components/ManageBudgetModal/ManageBudgetModal";
 import AllExpensesModal from "../../components/AllExpensesModal/AllExpensesModal";
+import NewCategoryModal from "../../components/NewCategoryModal/NewCategoryModal";
+
 
 export default class MainAppPage extends Component {
   state = {
@@ -13,6 +15,7 @@ export default class MainAppPage extends Component {
     ViewExpenseModalOpen: false,
     AllExpenseModalOpen: false,
     ManageBudgetModalOpen: false,
+    NewCategoryModalOpen:false,
 
     test: {
       labels: ["Food", "Housing", "Entertainment", "Crack", "Misc"],
@@ -59,6 +62,11 @@ export default class MainAppPage extends Component {
     change === true
       ? this.setState({ AllExpenseModalOpen: true })
       : this.setState({ AllExpenseModalOpen: false });
+  };
+  triggerNewCategoryModalOpen = (change) => {
+    change === true
+      ? this.setState({ NewCategoryModalOpen: true })
+      : this.setState({ NewCategoryModalOpen: false });
   };
 
   render() {
@@ -117,11 +125,13 @@ export default class MainAppPage extends Component {
           test={this.state.test}
           modalOpen={this.OpenManageBudgetModal}
           isModalOpen={this.state.ManageBudgetModalOpen}
-        />
+          createModalOpen = {this.triggerNewCategoryModalOpen}/>
+       
         <AllExpensesModal
           isModalOpen={this.state.AllExpenseModalOpen}
           expenseModalOpen={this.triggerAllExpenseModalOpen}
         />
+        <NewCategoryModal isModalOpen = {this.state.NewCategoryModalOpen} createModalOpen = {this.triggerNewCategoryModalOpen}/>
       </div>
     );
   }
