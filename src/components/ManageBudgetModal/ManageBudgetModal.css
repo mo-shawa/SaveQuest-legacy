@@ -25,6 +25,19 @@
     display:grid;
     grid-template-rows: 1fr 4fr;
 }
+.ModalHeader {
+    font-size: 28px;
+    color: rgb(27, 27, 27);
+}
+.ModalDivider {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.PiChart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .SmallModal{
     position: relative;
     background-color: #C5B6D8;
@@ -66,4 +79,12 @@
     flex-direction: column;
     justify-content: space-around;
     align-items:center;
+}
+hr {
+    border:2px solid black;
+    
+    margin-right: 6vw;
+}
+li {
+    margin-top: 1.5vh;
 }
