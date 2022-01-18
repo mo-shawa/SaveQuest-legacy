@@ -89,3 +89,63 @@ hr {
 li {
   margin: 1.5vh 0;
 }
+    border:2px solid black;
+    opacity:75;
+    margin-right: 6vw;
+}
+li {
+    margin: 2vh 0;
+}
+.AllExpenseWrapper {
+    width:90%;
+    padding-left: 10%;
+    display: inline-flex;
+    justify-content: center;
+    align-items:flex-start ;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.AllExpenseWrapper::-webkit-scrollbar{
+    width:19px;
+    
+    }
+    .AllExpenseWrapper::-webkit-scrollbar-track {
+        background: rgba(234, 221, 251, 0.5);
+        border-radius: 20px;   
+            /* color of the tracking area */
+      }
+      .AllExpenseWrapper::-webkit-scrollbar-thumb {
+        background-color: rgba(202, 174, 238, 0.7);    /* color of the scroll thumb */
+        border-radius: 20px;       /* roundness of the scroll thumb */
+        border: 2px solid rgba(59, 59, 59, 0.8);  /* creates padding around scroll thumb */
+      }
+
+table {
+    
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-family: 'Press Start 2P';
+    
+  }
+  
+  td{
+    
+    height: 5vh;
+    text-align: left;
+    padding: 8px;
+  }
+  th {
+    border-bottom: 2px solid #222;
+    text-align: left;
+    padding: 8px;
+    font-size: 20px;
+  }
+  th:nth-child(2){
+      border-right: 3px solid #222;
+      border-left: 3px solid #222;
+  }
+  td:nth-child(2){
+    border-right: 3px solid #222;
+    border-left: 3px solid #222;
+}

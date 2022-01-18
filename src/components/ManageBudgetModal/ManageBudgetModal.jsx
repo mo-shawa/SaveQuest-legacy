@@ -19,6 +19,12 @@ function ManageBudgetModal(props) {
               <hr />
               <ul>
                 <li></li>
+                <li>New Item</li>
+                <li>Edit Budgets</li>
+                <hr />
+                <ul>
+                  <li></li>
+                </ul>
               </ul>
             </ul>
           </div>
