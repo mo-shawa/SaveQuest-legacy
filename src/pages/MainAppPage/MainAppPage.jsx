@@ -110,12 +110,12 @@ export default class MainAppPage extends Component {
             </div>
           </div>
         </div>
-        <div className="log-expense">
+        
           <LogExpenseModal
             modalOpen={this.triggerLogExpenseModalOpen}
             isModalOpen={this.state.LogExpenseModalOpen}
           />
-        </div>
+        
 
         <ViewExpenseModal
           viewModalOpen={this.triggerViewExpenseModalOpen}
