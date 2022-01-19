@@ -18,6 +18,7 @@ export default class MainAppPage extends Component {
     NewCategoryModalOpen: false,
     EditModalOpen: false,
     WhichModalOpen: "",
+    expenses: [],
 
     test: {
       labels: ["Food", "Housing", "Entertainment", "Crack", "Misc"],
@@ -60,10 +61,10 @@ export default class MainAppPage extends Component {
       ? this.setState({ EditModalOpen: true, WhichModalOpen: CatId })
       : this.setState({ EditModalOpen: false, WhichModalOpen: "" });
   };
-  triggerViewExpenseModalOpen = (change) => {
+  triggerViewExpenseModalOpen = (change, expenses) => {
     change === true
-      ? this.setState({ ViewExpenseModalOpen: true })
-      : this.setState({ ViewExpenseModalOpen: false });
+      ? this.setState({ ViewExpenseModalOpen: true, expenses: expenses })
+      : this.setState({ ViewExpenseModalOpen: false, expenses: [] });
   };
 
   triggerAllExpenseModalOpen = (change) => {
@@ -109,6 +110,7 @@ export default class MainAppPage extends Component {
               {this.props.user.budget.categories.map((cat) => {
                 return (
                   <Card
+                    expenses={cat.expenses}
                     modalOpen={this.triggerLogExpenseModalOpen}
                     viewModalOpen={this.triggerViewExpenseModalOpen}
                     title={cat.name}
@@ -128,6 +130,7 @@ export default class MainAppPage extends Component {
         <ViewExpenseModal
           viewModalOpen={this.triggerViewExpenseModalOpen}
           isModalOpen={this.state.ViewExpenseModalOpen}
+          expenses={this.state.expenses}
         />
         <ManageBudgetModal
           test={this.state.test}
@@ -146,7 +149,6 @@ export default class MainAppPage extends Component {
           isModalOpen={this.state.EditModalOpen}
           user={this.props.user}
           catName={this.state.WhichModalOpen}
-
         />
 
         <NewCategoryModal

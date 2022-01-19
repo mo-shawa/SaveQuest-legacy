@@ -19,7 +19,7 @@ function Card(props) {
         </div>
         <div className="CardBtns" id="NoPadding">
           <button
-            onClick={() => props.viewModalOpen(true)}
+            onClick={() => props.viewModalOpen(true, props.expenses)}
             className="nes-btn CardBtn"
           >
             View Expenses
