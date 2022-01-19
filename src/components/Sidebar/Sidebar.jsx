@@ -8,9 +8,9 @@ class Sidebar extends Component {
   render() {
     return (
       <div className="Sidebar " id="NoPadding">
-        <Avatar />
+        <Avatar user={this.props.user} />
         <Stats />
-        <MenuButtons expenseModalOpen={this.props.expenseModalOpen} modalOpen = {this.props.modalOpen}/>
+        <MenuButtons expenseModalOpen={this.props.expenseModalOpen} modalOpen={this.props.modalOpen} />
       </div>
     );
   }

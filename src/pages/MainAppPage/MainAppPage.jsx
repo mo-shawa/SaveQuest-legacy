@@ -77,6 +77,7 @@ export default class MainAppPage extends Component {
         <Sidebar
           expenseModalOpen={this.triggerAllExpenseModalOpen}
           modalOpen={this.OpenManageBudgetModal}
+          user={this.props.user}
         />
         <div className="WindowWrapper">
           <div className="TotalBudgetWrapper">
