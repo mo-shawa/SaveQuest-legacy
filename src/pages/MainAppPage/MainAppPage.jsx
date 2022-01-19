@@ -18,6 +18,7 @@ export default class MainAppPage extends Component {
     NewCategoryModalOpen: false,
     EditModalOpen: false,
     WhichModalOpen:"",
+    BeingLoggedTo: "",
     
     test: {
       labels: ["Food", "Housing", "Entertainment", "Crack", "Misc"],
@@ -50,10 +51,10 @@ export default class MainAppPage extends Component {
       : this.setState({ ManageBudgetModalOpen: false });
   };
 
-  triggerLogExpenseModalOpen = (change) => {
+  triggerLogExpenseModalOpen = (change, loggingTo) => {
     change === true
-      ? this.setState({ LogExpenseModalOpen: true })
-      : this.setState({ LogExpenseModalOpen: false });
+      ? this.setState({ LogExpenseModalOpen: true, BeingLoggedTo: loggingTo})
+      : this.setState({ LogExpenseModalOpen: false, BeingLoggedTo: "" });
   };
   triggerEditModalOpen = (change, CatId) => {
     change === true
@@ -113,6 +114,7 @@ export default class MainAppPage extends Component {
                     viewModalOpen={this.triggerViewExpenseModalOpen}
                     title={cat.name}
                     max={cat.max}
+                    id={cat._id}
                   />
                 );
               })}
@@ -123,6 +125,7 @@ export default class MainAppPage extends Component {
         <LogExpenseModal
           modalOpen={this.triggerLogExpenseModalOpen}
           isModalOpen={this.state.LogExpenseModalOpen}
+
         />
 
         <ViewExpenseModal

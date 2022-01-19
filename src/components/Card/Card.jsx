@@ -25,7 +25,7 @@ function Card(props) {
             View Expenses
           </button>
           <button
-            onClick={() => props.modalOpen(true)}
+            onClick={() => props.modalOpen(true, props.id)}
             className="nes-btn CardBtn"
           >
             Log Expense
