@@ -6,18 +6,48 @@ import LogExpenseModal from "../../components/LogExpense/LogExpense";
 import ViewExpenseModal from "../../components/ViewExpenses/ViewExpenses";
 import ManageBudgetModal from "../../components/ManageBudgetModal/ManageBudgetModal";
 import AllExpensesModal from "../../components/AllExpensesModal/AllExpensesModal";
+import NewCategoryModal from "../../components/NewCategoryModal/NewCategoryModal";
+
+
 export default class MainAppPage extends Component {
   state = {
     LogExpenseModalOpen: false,
     ViewExpenseModalOpen: false,
     AllExpenseModalOpen: false,
     ManageBudgetModalOpen: false,
+    NewCategoryModalOpen: false,
+
+    test: {
+      labels: ["Food", "Housing", "Entertainment", "Crack", "Misc"],
+      datasets: [
+        {
+          label: "Rainfall",
+          backgroundColor: [
+            "#B21F00",
+            "#C9DE00",
+            "#2FDE00",
+            "#00A6B4",
+            "#6800B4",
+          ],
+          hoverBackgroundColor: [
+            "#501800",
+            "#4B5000",
+            "#175000",
+            "#003350",
+            "#35014F",
+          ],
+          data: [65, 59, 40, 81, 56],
+        },
+      ],
+    },
   };
+
   OpenManageBudgetModal = (change) => {
     change === true
       ? this.setState({ ManageBudgetModalOpen: true })
       : this.setState({ ManageBudgetModalOpen: false });
   };
+
   triggerLogExpenseModalOpen = (change) => {
     change === true
       ? this.setState({ LogExpenseModalOpen: true })
@@ -35,6 +65,11 @@ export default class MainAppPage extends Component {
       ? this.setState({ AllExpenseModalOpen: true })
       : this.setState({ AllExpenseModalOpen: false });
   };
+  triggerNewCategoryModalOpen = (change) => {
+    change === true
+      ? this.setState({ NewCategoryModalOpen: true })
+      : this.setState({ NewCategoryModalOpen: false });
+  };
 
   render() {
     return (
@@ -42,13 +77,14 @@ export default class MainAppPage extends Component {
         <Sidebar
           expenseModalOpen={this.triggerAllExpenseModalOpen}
           modalOpen={this.OpenManageBudgetModal}
+          user={this.props.user}
         />
         <div className="WindowWrapper">
           <div className="TotalBudgetWrapper">
             <div className="TotalBudgetContainer nes-container" id="NoPadding">
               <div className="TotalBudgetTitle ">Total Budget</div>
               <div className="TotalBudgetProgress">
-                <div className="TotalBudgetValue">24/25</div>
+                <div className="TotalBudgetValue">24/{this.props.user.budget.total}</div>
                 <div className="TotalBudgetBar">
                   <progress
                     class="nes-progress is-primary"
@@ -62,18 +98,15 @@ export default class MainAppPage extends Component {
           </div>
           <div className="CardWrapper">
             <div className="CardContainer">
-              <Card
-                modalOpen={this.triggerLogExpenseModalOpen}
-                viewModalOpen={this.triggerViewExpenseModalOpen}
-                title="Food"
-              />
-              <Card title="Housing" />
-              <Card title="Entertainment" />
-              <Card title="Misc" />
-              <Card title="Self-Improvement" />
-              <Card title="Crack" />
-              <Card />
-              <Card />
+              {this.props.user.budget.categories.map(cat => {
+                return <Card
+                  modalOpen={this.triggerLogExpenseModalOpen}
+                  viewModalOpen={this.triggerViewExpenseModalOpen}
+                  title={cat.name}
+                  max={cat.max}
+                />
+              })}
+
             </div>
           </div>
         </div>
@@ -89,13 +122,16 @@ export default class MainAppPage extends Component {
           isModalOpen={this.state.ViewExpenseModalOpen}
         />
         <ManageBudgetModal
+          test={this.state.test}
           modalOpen={this.OpenManageBudgetModal}
           isModalOpen={this.state.ManageBudgetModalOpen}
-        />
+          createModalOpen={this.triggerNewCategoryModalOpen} />
+
         <AllExpensesModal
           isModalOpen={this.state.AllExpenseModalOpen}
           expenseModalOpen={this.triggerAllExpenseModalOpen}
         />
+        <NewCategoryModal createCat={this.props.createCat} isModalOpen={this.state.NewCategoryModalOpen} createModalOpen={this.triggerNewCategoryModalOpen} user={this.props.user} setUserInState={this.props.setUserInState} />
       </div>
     );
   }

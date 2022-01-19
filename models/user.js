@@ -4,11 +4,7 @@ const Schema = mongoose.Schema;
 const expenseSchema = new Schema({
   amount: Number,
   detail: String,
-  date: {
-    type: Date,
-    default: () => Date.now(),
-  }
-})
+}, { timestamps: true })
 
 const categorySchema = new Schema({
   name: String,
@@ -47,7 +43,12 @@ const userSchema = new Schema({
   }
 });
 
+const UserModel = mongoose.model('User', userSchema)
+const CategoryModel = mongoose.model('Category', categorySchema)
+const ExpenseModel = mongoose.model('Expense', expenseSchema)
 
-
-
-module.exports = mongoose.model('User', userSchema);
+module.exports = {
+  UserModel,
+  CategoryModel,
+  ExpenseModel
+}

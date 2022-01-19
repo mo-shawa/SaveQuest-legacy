@@ -31,7 +31,8 @@
 .Circle {
     height:100%;
     width:100%;
-    display: flex;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1.5fr 1fr;
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255,255,.6);
@@ -45,10 +46,11 @@
     padding:0;
 }
 .innerCircle{
-    background-color: rgba(255,255,255,.1);
+   height:100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
 }
 h2 {
     justify-content: center;
@@ -56,7 +58,19 @@ h2 {
     text-align: center;
 }
 .Avatar {
-    height:45%;
-    
+    height:100%;  
+}
+.LevelValue{
+    margin:0;
+}
+.AvatarLevel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+.AvatarProgress {
+    height:25px;
+    width: 90%;
     
 }

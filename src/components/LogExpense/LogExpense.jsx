@@ -4,19 +4,23 @@ import "./LogExpense.css";
 function LogExpenseModal(props) {
   return (
     <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg"}>
-      <div className="SmallModal">
-        <form action="/" method="post">
-          <h1>Log Expense</h1>
-          <label>Item:</label>
-          <input id="modal-input" type="text" />
-          <label>Price:</label>
-          <input id="modal-input" type="number" />
-          <button className="submit" type="submit">
-            Submit
-          </button>
+      <div className="SmallModal nes-container">
+       
+          <h2 className="ModalHeader">Log Expense</h2>
           <div className="modal-close">
             <span onClick={() => props.modalOpen(false)}>X</span>
-          </div>
+          </div> 
+          <form className="BigModalForm" action="/" method="post">
+          <label>Item: 
+          <input id="modal-input" className="ModalInput" type="text" />
+          </label>
+          <label>Price: 
+          <input id="modal-input" className="ModalInput" value= "$" type="number" placeholder="$"/>
+          </label>
+          <button className="submit nes-btn" type="submit">
+            Submit
+          </button>
+          
         </form>
       </div>
     </div>
