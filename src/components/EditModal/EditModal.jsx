@@ -26,7 +26,7 @@ function EditModal(props) {
 
       }
     })
-  }, [editCatForm])
+  }, [props.catName])
 
 
   const handleSubmit = async (evt) => {
