@@ -17,10 +17,11 @@ function ManageBudgetModal(props) {
               <button className="nes-btn" onClick={() => props.createModalOpen(true) }>New Item +</button>
               <li>Edit Budgets</li>
               <hr />
-              <ul>
-
-                <li></li>
-              </ul>
+              
+              {props.user.budget.categories.map(cat => {
+                return <li onClick={() => props.editModalOpen(true, cat.name)} catId={cat._id} className="CatLinks">{cat.name}</li>
+              })}
+              
             </ul>
           </div>
           <div className="PiChart">
