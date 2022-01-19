@@ -17,8 +17,8 @@ export default class MainAppPage extends Component {
     ManageBudgetModalOpen: false,
     NewCategoryModalOpen: false,
     EditModalOpen: false,
-    WhichModalOpen:"",
-    
+    WhichModalOpen: "",
+
     test: {
       labels: ["Food", "Housing", "Entertainment", "Crack", "Misc"],
       datasets: [
@@ -57,7 +57,7 @@ export default class MainAppPage extends Component {
   };
   triggerEditModalOpen = (change, CatId) => {
     change === true
-      ? this.setState({ EditModalOpen: true , WhichModalOpen: CatId })
+      ? this.setState({ EditModalOpen: true, WhichModalOpen: CatId })
       : this.setState({ EditModalOpen: false, WhichModalOpen: "" });
   };
   triggerViewExpenseModalOpen = (change) => {
@@ -145,12 +145,11 @@ export default class MainAppPage extends Component {
           modalOpen={this.triggerEditModalOpen}
           isModalOpen={this.state.EditModalOpen}
           user={this.props.user}
-          catName= {this.state.WhichModalOpen}
-          
+          catName={this.state.WhichModalOpen}
+
         />
 
         <NewCategoryModal
-          createCat={this.props.createCat}
           isModalOpen={this.state.NewCategoryModalOpen}
           createModalOpen={this.triggerNewCategoryModalOpen}
           user={this.props.user}
