@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 
 function EditModal(props) {
@@ -18,6 +18,16 @@ function EditModal(props) {
       }
     })
   };
+
+  useEffect(() => {
+    setEditCatForm((state) => {
+      return {
+        name: props.catName
+
+      }
+    })
+  }, [editCatForm])
+
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
