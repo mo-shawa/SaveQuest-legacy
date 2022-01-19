@@ -34,13 +34,17 @@ function App() {
     } // would navigate to landing here if no token
   }, [])
 
+  const createCat = async () => {
+
+  }
+
   return (
     <div className="App">
       <Header user={user} />
 
       <Routes>
         <Route path='/auth' element={<AuthPage userLogout={userLogout} setUserInState={setUserInState} />} />
-        <Route path='/app' element={<MainAppPage />} />
+        <Route path='/app' element={<MainAppPage setUserInState={setUserInState} user={user} createCat={createCat} />} />
         <Route path='/landing' element={<LandingPage />} />
       </Routes>
     </div>

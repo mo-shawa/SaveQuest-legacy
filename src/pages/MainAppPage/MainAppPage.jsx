@@ -15,7 +15,7 @@ export default class MainAppPage extends Component {
     ViewExpenseModalOpen: false,
     AllExpenseModalOpen: false,
     ManageBudgetModalOpen: false,
-    NewCategoryModalOpen:false,
+    NewCategoryModalOpen: false,
 
     test: {
       labels: ["Food", "Housing", "Entertainment", "Crack", "Misc"],
@@ -125,13 +125,13 @@ export default class MainAppPage extends Component {
           test={this.state.test}
           modalOpen={this.OpenManageBudgetModal}
           isModalOpen={this.state.ManageBudgetModalOpen}
-          createModalOpen = {this.triggerNewCategoryModalOpen}/>
-       
+          createModalOpen={this.triggerNewCategoryModalOpen} />
+
         <AllExpensesModal
           isModalOpen={this.state.AllExpenseModalOpen}
           expenseModalOpen={this.triggerAllExpenseModalOpen}
         />
-        <NewCategoryModal isModalOpen = {this.state.NewCategoryModalOpen} createModalOpen = {this.triggerNewCategoryModalOpen}/>
+        <NewCategoryModal createCat={this.props.createCat} isModalOpen={this.state.NewCategoryModalOpen} createModalOpen={this.triggerNewCategoryModalOpen} user={this.props.user} setUserInState={this.props.setUserInState} />
       </div>
     );
   }
