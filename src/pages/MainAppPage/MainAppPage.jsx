@@ -41,11 +41,13 @@ export default class MainAppPage extends Component {
       ],
     },
   };
+
   OpenManageBudgetModal = (change) => {
     change === true
       ? this.setState({ ManageBudgetModalOpen: true })
       : this.setState({ ManageBudgetModalOpen: false });
   };
+
   triggerLogExpenseModalOpen = (change) => {
     change === true
       ? this.setState({ LogExpenseModalOpen: true })
@@ -81,7 +83,7 @@ export default class MainAppPage extends Component {
             <div className="TotalBudgetContainer nes-container" id="NoPadding">
               <div className="TotalBudgetTitle ">Total Budget</div>
               <div className="TotalBudgetProgress">
-                <div className="TotalBudgetValue">24/25</div>
+                <div className="TotalBudgetValue">24/{this.props.user.budget.total}</div>
                 <div className="TotalBudgetBar">
                   <progress
                     class="nes-progress is-primary"
@@ -95,18 +97,15 @@ export default class MainAppPage extends Component {
           </div>
           <div className="CardWrapper">
             <div className="CardContainer">
-              <Card
-                modalOpen={this.triggerLogExpenseModalOpen}
-                viewModalOpen={this.triggerViewExpenseModalOpen}
-                title="Food"
-              />
-              <Card title="Housing" />
-              <Card title="Entertainment" />
-              <Card title="Misc" />
-              <Card title="Self-Improvement" />
-              <Card title="Crack" />
-              <Card />
-              <Card />
+              {this.props.user.budget.categories.map(cat => {
+                return <Card
+                  modalOpen={this.triggerLogExpenseModalOpen}
+                  viewModalOpen={this.triggerViewExpenseModalOpen}
+                  title={cat.name}
+                  max={cat.max}
+                />
+              })}
+
             </div>
           </div>
         </div>
