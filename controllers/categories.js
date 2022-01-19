@@ -1,6 +1,6 @@
 const { UserModel } = require('../models/user')
 const { CategoryModel } = require('../models/user')
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
 
 
 const createCat = async (req, res) => {
@@ -10,10 +10,11 @@ const createCat = async (req, res) => {
         const newCat = new CategoryModel(req.body)
         // console.log(newCat)
         user.budget.categories.push(newCat)
-        user.save()
-        const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: '24h' })
-        res.status(200).json(token)
-        // res.status(200).json(user)
+        const updatedUser = await user.save()
+        // const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: '24h' })
+        // res.status(200).json(token)
+        console.log(updatedUser)
+        res.status(200).json(updatedUser)
     } catch (error) {
         console.log(error.message)
         res.status(400).json(error.message)

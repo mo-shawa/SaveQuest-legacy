@@ -84,7 +84,7 @@ export default class MainAppPage extends Component {
             <div className="TotalBudgetContainer nes-container" id="NoPadding">
               <div className="TotalBudgetTitle ">Total Budget</div>
               <div className="TotalBudgetProgress">
-                <div className="TotalBudgetValue">24/{this.props.user.budget.total}</div>
+                <div className="TotalBudgetValue">24/{this.props.user && this.props.user.budget && this.props.user.budget.total}</div>
                 <div className="TotalBudgetBar">
                   <progress
                     class="nes-progress is-primary"
@@ -98,7 +98,7 @@ export default class MainAppPage extends Component {
           </div>
           <div className="CardWrapper">
             <div className="CardContainer">
-              {this.props.user.budget.categories.map(cat => {
+              {this.props.user.budget?.categories.map(cat => {
                 return <Card
                   modalOpen={this.triggerLogExpenseModalOpen}
                   viewModalOpen={this.triggerViewExpenseModalOpen}
@@ -131,7 +131,7 @@ export default class MainAppPage extends Component {
           isModalOpen={this.state.AllExpenseModalOpen}
           expenseModalOpen={this.triggerAllExpenseModalOpen}
         />
-        <NewCategoryModal createCat={this.props.createCat} isModalOpen={this.state.NewCategoryModalOpen} createModalOpen={this.triggerNewCategoryModalOpen} user={this.props.user} setUserInState={this.props.setUserInState} />
+        <NewCategoryModal isModalOpen={this.state.NewCategoryModalOpen} createModalOpen={this.triggerNewCategoryModalOpen} user={this.props.user} setUserInState={this.props.setUserInState} />
       </div>
     );
   }

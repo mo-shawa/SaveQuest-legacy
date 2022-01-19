@@ -33,13 +33,15 @@ function NewCategoryModal(props) {
           })
         })
       if (!fetchResponse.ok) throw new Error("Fetch failed - Bad request");
+      const userData = await fetchResponse.json()
+      console.log(userData)
+      props.setUserInState(userData)
+      // let token = await fetchResponse.json();
 
-      let token = await fetchResponse.json();
+      // localStorage.setItem("token", token);
 
-      localStorage.setItem("token", token);
-
-      const userDoc = JSON.parse(atob(token.split(".")[1])).user;
-      props.setUserInState(userDoc);
+      // const userDoc = JSON.parse(atob(token.split(".")[1])).user;
+      // props.setUserInState(userDoc);
 
     } catch (error) {
       console.log(error.message)
