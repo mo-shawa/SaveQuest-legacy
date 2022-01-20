@@ -17,6 +17,7 @@ function EditModal(props) {
     });
   };
 
+
   useEffect(() => {
     setEditCatForm((state) => {
       return {
@@ -31,14 +32,13 @@ function EditModal(props) {
     evt.preventDefault();
     try {
       const fetchResponse = await fetch(
-        `/api/users/${props.user._id}/categories`,
+        `/api/users/${props.user._id}/categories/${props.cat._id}`,
         {
-          method: "POST",
+          method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             name: editCatForm.name,
             max: editCatForm.max,
-            expenses: [],
           }),
         }
       );

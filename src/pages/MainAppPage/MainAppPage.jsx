@@ -141,6 +141,7 @@ export default class MainAppPage extends Component {
           isModalOpen={this.state.EditModalOpen}
           user={this.props.user}
           cat={this.state.WhichModalOpen}
+          setUserInState={this.props.setUserInState}
         />
 
         <NewCategoryModal
