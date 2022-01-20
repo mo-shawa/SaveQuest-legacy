@@ -26,6 +26,13 @@ const deleteCat = async (req, res) => {
         const user = await UserModel.findById(req.params.user_id)
         const catIdx = user.budget.categories.findIndex(cat => cat.id === req.params.cat_id)
         if (catIdx < 0) throw new Error('Category not found')
+        // Only way I could think of 
+        let category = user.budget.categories[catIdx]
+        if (category.expenses.length) {
+            let sumExpenses = category.expenses.reduce((exp1, exp2) => exp1.amount + exp2.amount)
+            console.log(sumExpenses)
+            user.budget.totalExp -= +sumExpenses
+        }
         user.budget.total -= +user.budget.categories[catIdx].max
         let deleted = user.budget.categories.splice(catIdx, 1)
         const updatedUser = await user.save()
@@ -33,6 +40,7 @@ const deleteCat = async (req, res) => {
         const token = jwt.sign({ user: updatedUser }, process.env.SECRET, { expiresIn: '24h' })
         res.status(200).json(token)
     } catch (error) {
+        console.log(error)
         res.status(400).json(error)
     }
 

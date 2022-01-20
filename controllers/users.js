@@ -20,6 +20,7 @@ async function create(req, res) {
                 password: hashedPassword,
                 budget: {
                     total: 1000,
+                    totalExp: 0,
                     categories: [
                         {
                             name: 'Housing',
