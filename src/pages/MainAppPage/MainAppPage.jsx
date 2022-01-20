@@ -138,7 +138,7 @@ export default class MainAppPage extends Component {
           modalOpen={this.triggerEditModalOpen}
           isModalOpen={this.state.EditModalOpen}
           user={this.props.user}
-          catName={this.state.WhichModalOpen}
+          cat={this.state.WhichModalOpen}
         />
 
         <NewCategoryModal

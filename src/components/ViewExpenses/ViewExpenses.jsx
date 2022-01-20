@@ -7,8 +7,8 @@ function ViewExpenseModal(props) {
     <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg"}>
       <div className="SmallModal nes-container">
         <h2 className="ModalHeader">{props.category} Expenses</h2>
-        <div className="modal-close">
-          <span onClick={() => props.viewModalOpen(false)}>X</span>
+        <div onClick={() => props.viewModalOpen(false)} className="modal-close">
+          <span >X</span>
         </div>
         <div className="AllExpenseWrapper" id="ViewExpenseWrapper">
           <table>

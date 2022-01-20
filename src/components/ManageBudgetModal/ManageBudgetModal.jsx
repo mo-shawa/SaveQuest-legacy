@@ -6,6 +6,8 @@ import "chart.js/auto";
 function ManageBudgetModal(props) {
   const data = props.user.budget.categories;
 
+
+
   const [chartData, setChartData] = useState({
     labels: data.map((cat) => cat.name),
     datasets: [
@@ -49,8 +51,8 @@ function ManageBudgetModal(props) {
     <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg"}>
       <div className="BigModal nes-container is-primary">
         <h2 className="ModalHeader">Manage Budget</h2>
-        <div className="modal-close">
-          <span onClick={() => props.modalOpen(false)}>x</span>
+        <div onClick={() => props.modalOpen(false)} className="modal-close">
+          <span >x</span>
         </div>
         <div className="ModalDivider">
           <div className="ModaLinksWrapper">
@@ -80,7 +82,7 @@ function ManageBudgetModal(props) {
                         </svg>{" "}
                       </span>
                       <li
-                        onClick={() => props.editModalOpen(true, cat.name)}
+                        onClick={() => props.editModalOpen(true, cat)}
                         catId={cat._id}
                         className="CatLinks"
                       >

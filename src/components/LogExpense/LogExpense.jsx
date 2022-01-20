@@ -54,8 +54,8 @@ function LogExpenseModal(props) {
       <div className="SmallModal nes-container">
 
         <h2 className="ModalHeader">Log Expense</h2>
-        <div className="modal-close">
-          <span onClick={() => props.modalOpen(false)}>X</span>
+        <div onClick={() => props.modalOpen(false)} className="modal-close nes-btn">
+          <span >X</span>
         </div>
         <form className="BigModalForm" onSubmit={handleSubmit}>
           <label>Detail:
