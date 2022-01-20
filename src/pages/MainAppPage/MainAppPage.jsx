@@ -22,6 +22,14 @@ export default class MainAppPage extends Component {
     expenses: [],
   };
 
+  HandleLevelling = () => {
+    const now = new Date();
+
+    console.log(now);
+
+  }
+
+
   OpenManageBudgetModal = (change) => {
     change === true
       ? this.setState({ ManageBudgetModalOpen: true })
