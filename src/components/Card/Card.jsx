@@ -1,18 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Card.css";
 
 function Card(props) {
+  const [total, setTotal] = useState(0);
+  useEffect(() => {
+    if (props.expenses) {
+      let expenseAmounts = props.expenses.map((expense) => expense.amount);
+      let cardTotal = expenseAmounts.reduce((num1, num2) => num1 + num2, 0);
+      setTotal(cardTotal);
+    }
+  }, []);
+
   return (
     <div className="CardBox">
       <div className="Card nes-container" id="NoPadding">
         <div className="CardTitle"> {props.title} </div>
         <div className="CardProgress">
-          <div className="CardProgressValue">WIP/{props.max}</div>
+          <div className="CardProgressValue">
+            {total}/{props.max}
+          </div>
           <div className="CardProgressBar">
             <progress
-              class="nes-progress is-primary"
+              class={total <= props.max ? "nes-progress is-primary ProgressBar" : "nes-progress is-error ProgressBar"}
               id="BarHeight"
-              value="80"
+              value={total}
               max={props.max}
             ></progress>
           </div>

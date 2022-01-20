@@ -37,7 +37,7 @@ width:19px;
     width:95%;
     background-color: rgba(228, 209, 253, 0.9);;
     display: grid;
-    grid-template-rows: 35% 30% 35%;
+    grid-template-rows: 31% 33% 35%;
     
 }
 .CardTitle{
