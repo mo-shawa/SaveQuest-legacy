@@ -3,11 +3,13 @@ import "./Card.css";
 
 function Card(props) {
   const [total, setTotal] = useState(0);
-  if (props.expenses) {
-    let expenseAmounts = props.expenses.map((expense) => expense.amount);
-    let cardTotal = expenseAmounts.reduce((num1, num2) => num1 + num2);
-    setTotal(cardTotal);
-  }
+  useEffect(() => {
+    if (props.expenses) {
+      let expenseAmounts = props.expenses.map((expense) => expense.amount);
+      let cardTotal = expenseAmounts.reduce((num1, num2) => num1 + num2, 0);
+      setTotal(cardTotal);
+    }
+  }, []);
 
   return (
     <div className="CardBox">
