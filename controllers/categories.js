@@ -33,8 +33,10 @@ const deleteCat = async (req, res) => {
             if (category.expenses.length === 1) {
                 user.budget.totalExp -= +category.expenses[0].amount
             } else {
-                let sumExpenses = category.expenses.reduce((exp1, exp2) => exp1.amount + exp2.amount, 0)
+                console.log('CATEGORY EXPENSES: ', category.expenses)
+                let sumExpenses = category.expenses.reduce((sum, exp) => { return sum + exp.amount }, 0)
                 console.log(sumExpenses)
+                console.log('USER BUDGET: ', user.budget)
                 user.budget.totalExp -= +sumExpenses
             }
         }
