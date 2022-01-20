@@ -17,7 +17,7 @@ export default class MainAppPage extends Component {
     ManageBudgetModalOpen: false,
     NewCategoryModalOpen: false,
     EditModalOpen: false,
-    WhichModalOpen:"",
+    WhichModalOpen: "",
     BeingLoggedTo: "",
     expenses: [],
     test: {
@@ -53,7 +53,7 @@ export default class MainAppPage extends Component {
 
   triggerLogExpenseModalOpen = (change, loggingTo) => {
     change === true
-      ? this.setState({ LogExpenseModalOpen: true, BeingLoggedTo: loggingTo})
+      ? this.setState({ LogExpenseModalOpen: true, BeingLoggedTo: loggingTo })
       : this.setState({ LogExpenseModalOpen: false, BeingLoggedTo: "" });
   };
   triggerEditModalOpen = (change, CatId) => {
@@ -126,6 +126,9 @@ export default class MainAppPage extends Component {
         <LogExpenseModal
           modalOpen={this.triggerLogExpenseModalOpen}
           isModalOpen={this.state.LogExpenseModalOpen}
+          id={this.state.BeingLoggedTo}
+          user={this.props.user}
+          setUserInState={this.props.setUserInState}
 
         />
 
@@ -141,6 +144,7 @@ export default class MainAppPage extends Component {
           user={this.props.user}
           createModalOpen={this.triggerNewCategoryModalOpen}
           editModalOpen={this.triggerEditModalOpen}
+          setUserInState={this.props.setUserInState}
         />
         <AllExpensesModal
           isModalOpen={this.state.AllExpenseModalOpen}

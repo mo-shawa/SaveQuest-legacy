@@ -4,6 +4,25 @@ import { Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
 
 function ManageBudgetModal(props) {
+
+  const handleDelete = async (cat_id) => {
+    try {
+      const fetchResponse = await fetch(`/api/users/${props.user._id}/categories/${cat_id}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      })
+
+      if (!fetchResponse.ok) throw new Error("Delete failed!")
+
+      const userData = await fetchResponse.json()
+      props.setUserInState(userData)
+    } catch (error) {
+      console.log(error.message)
+
+    }
+  }
+
+
   return (
     <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg"}>
       <div className="BigModal nes-container is-primary">
@@ -14,14 +33,18 @@ function ManageBudgetModal(props) {
         <div className="ModalDivider">
           <div className="ModaLinksWrapper">
             <ul>
-              <button className="nes-btn" onClick={() => props.createModalOpen(true) }>New Item +</button>
+              <button className="nes-btn" onClick={() => props.createModalOpen(true)}>New Item +</button>
               <li>Edit Budgets</li>
               <hr />
-              
+
               {props.user.budget.categories.map(cat => {
-                return <li onClick={() => props.editModalOpen(true, cat.name)} catId={cat._id} className="CatLinks">{cat.name}</li>
+                return <>
+                  <span onClick={() => handleDelete(cat._id)}>DELETE - </span><li onClick={() => props.editModalOpen(true, cat.name)} catId={cat._id} className="CatLinks">{cat.name}</li>
+
+
+                </>
               })}
-              
+
             </ul>
           </div>
           <div className="PiChart">
