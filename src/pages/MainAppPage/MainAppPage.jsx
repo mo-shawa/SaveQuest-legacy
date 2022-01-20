@@ -84,7 +84,7 @@ export default class MainAppPage extends Component {
                     class="nes-progress is-primary"
                     id="Margin"
                     value="80"
-                    max="100"
+                    max={this.props.user.budget.total}
                   ></progress>
                 </div>
               </div>
