@@ -23,7 +23,7 @@
   height: 70%;
   border: 5px solid black;
   display: grid;
-  grid-template-rows: 1fr 4fr;
+  grid-template-rows: 1fr 5fr;
 }
 .ModalHeader {
   font-size: 28px;
@@ -31,13 +31,14 @@
 }
 .ModalDivider {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 45% 55%;
 }
 .PiChart {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  width: 100%;
+  margin-right:2vw;
 }
 .SmallModal {
   position: relative;
@@ -54,7 +55,13 @@
   z-index: 5;
  
 }
-
+canvas{
+  height:100%;
+  width: 100%;
+  margin-right:2vw;
+  margin-bottom:3vh;
+  padding:2vh
+}
 .modal-close {
   position: absolute;
   top: 2vh;

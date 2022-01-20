@@ -14,6 +14,9 @@ function ManageBudgetModal(props) {
       {
         label: "Budget Allocation",
         data: data.map((c) => c.max),
+        borderWidth:"4", 
+        textStrokeWidth:'12',
+        borderColor:"rgba(0, 0, 0, 1)",
         backgroundColor: [
           "#ffbb11",
           "#ecf0f1",
@@ -97,6 +100,7 @@ function ManageBudgetModal(props) {
           <div className="PiChart">
             <Doughnut
               data={chartData}
+              
               options={{
                 title: {
                   display: true,
