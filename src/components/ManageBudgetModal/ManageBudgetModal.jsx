@@ -1,27 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ManageBudgetModal.css";
 import { Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
 
 function ManageBudgetModal(props) {
-
   const handleDelete = async (cat_id) => {
     try {
-      const fetchResponse = await fetch(`/api/users/${props.user._id}/categories/${cat_id}`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-      })
+      const fetchResponse = await fetch(
+        `/api/users/${props.user._id}/categories/${cat_id}`,
+        {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
 
-      if (!fetchResponse.ok) throw new Error("Delete failed!")
+      if (!fetchResponse.ok) throw new Error("Delete failed!");
 
-      const userData = await fetchResponse.json()
-      props.setUserInState(userData)
+      const userData = await fetchResponse.json();
+      props.setUserInState(userData);
     } catch (error) {
-      console.log(error.message)
-
+      console.log(error.message);
     }
-  }
+  };
 
+  useEffect(() => {
+    const data = props.user.budgets.categories;
+    setChartData({
+      labels: data.map((cat) => cat.name),
+      datasets: [
+        {
+          label: "Budget Allocation",
+          data: data.map((c) => c.max),
+          backgroundColor: [
+            "#ffbb11",
+            "#ecf0f1",
+            "#50AF95",
+            "#f3ba2f",
+            "#2a71d0",
+          ],
+        },
+      ],
+    });
+  }, []);
+
+  const [chartData, setChartData] = useState({});
 
   return (
     <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg"}>
@@ -33,27 +55,37 @@ function ManageBudgetModal(props) {
         <div className="ModalDivider">
           <div className="ModaLinksWrapper">
             <ul>
-              <button className="nes-btn" onClick={() => props.createModalOpen(true)}>New Item +</button>
+              <button
+                className="nes-btn"
+                onClick={() => props.createModalOpen(true)}
+              >
+                New Item +
+              </button>
               <li>Edit Budgets</li>
               <hr />
 
-              {props.user.budget.categories.map(cat => {
-                return <>
-                  <span onClick={() => handleDelete(cat._id)}>DELETE - </span><li onClick={() => props.editModalOpen(true, cat.name)} catId={cat._id} className="CatLinks">{cat.name}</li>
-
-
-                </>
+              {props.user.budget.categories.map((cat) => {
+                return (
+                  <>
+                    <span onClick={() => handleDelete(cat._id)}>DELETE - </span>
+                    <li
+                      onClick={() => props.editModalOpen(true, cat.name)}
+                      catId={cat._id}
+                      className="CatLinks"
+                    >
+                      {cat.name}
+                    </li>
+                  </>
+                );
               })}
-
             </ul>
           </div>
           <div className="PiChart">
             <Doughnut
-              data={props.test}
+              data={chartData}
               options={{
                 title: {
                   display: true,
-                  text: "Average Rainfall per month",
                   fontSize: 20,
                 },
                 legend: {

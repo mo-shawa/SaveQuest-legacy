@@ -20,11 +20,11 @@ export default class MainAppPage extends Component {
     WhichModalOpen: "",
     BeingLoggedTo: "",
     expenses: [],
+
     test: {
       labels: ["Food", "Housing", "Entertainment", "Crack", "Misc"],
       datasets: [
         {
-          label: "Rainfall",
           backgroundColor: [
             "#B21F00",
             "#C9DE00",
@@ -129,7 +129,6 @@ export default class MainAppPage extends Component {
           id={this.state.BeingLoggedTo}
           user={this.props.user}
           setUserInState={this.props.setUserInState}
-
         />
 
         <ViewExpenseModal
