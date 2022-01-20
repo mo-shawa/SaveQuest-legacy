@@ -32,7 +32,7 @@ function ManageBudgetModal(props) {
         </div>
         <div className="ModalDivider">
           <div className="ModaLinksWrapper">
-            <ul>
+            <ul className="ManageLeftWrapper">
               <button
                 className="nes-btn"
                 onClick={() => props.createModalOpen(true)}
@@ -41,7 +41,7 @@ function ManageBudgetModal(props) {
               </button>
               <li>Edit Budgets</li>
               <hr />
-
+              <div className="ListWrapper">
               {props.user.budget.categories.map((cat) => {
                 return (
                   <div className="listItems">
@@ -67,6 +67,7 @@ function ManageBudgetModal(props) {
                   </div>
                 );
               })}
+              </div>
             </ul>
           </div>
           <div className="PiChart">

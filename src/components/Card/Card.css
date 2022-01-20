@@ -9,6 +9,8 @@
     flex-wrap: wrap;
     overflow: scroll;
     overflow-x: hidden;
+    overflow-y: auto;
+    justify-content: flex-start;
 }
 .CardContainer::-webkit-scrollbar{
 width:19px;
