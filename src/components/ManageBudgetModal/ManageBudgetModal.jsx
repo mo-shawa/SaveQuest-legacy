@@ -13,16 +13,24 @@ function ManageBudgetModal(props) {
     datasets: [
       {
         label: "Budget Allocation",
+        borderColor: "black",
         data: data.map((c) => c.max),
         borderWidth:"4", 
         textStrokeWidth:'12',
         borderColor:"rgba(0, 0, 0, 1)",
         backgroundColor: [
-          "#ffbb11",
-          "#ecf0f1",
-          "#50AF95",
-          "#f3ba2f",
-          "#2a71d0",
+          "#ff82fd",
+          "#f7a334",
+          "#5dde62",
+          "#428def",
+          "#424aef",
+          "#efe742",
+          "#073ab0",
+          "#07b024",
+          "#b00738",
+          "#23fdec",
+          "#f2f11b",
+          "#fd5456",
         ],
       },
     ],
@@ -41,9 +49,9 @@ function ManageBudgetModal(props) {
       if (!fetchResponse.ok) throw new Error("Delete failed!");
 
       const token = await fetchResponse.json();
-      localStorage.setItem('token', token)
-      const userData = JSON.parse(atob(token.split(".")[1])).user
-      console.log(userData)
+      localStorage.setItem("token", token);
+      const userData = JSON.parse(atob(token.split(".")[1])).user;
+      console.log(userData);
       props.setUserInState(userData);
     } catch (error) {
       console.log(error.message);
@@ -72,7 +80,10 @@ function ManageBudgetModal(props) {
                 {props.user.budget.categories.map((cat) => {
                   return (
                     <div className="listItems">
-                      <span className="Trash" onClick={() => handleDelete(cat._id)}>
+                      <span
+                        className="Trash"
+                        onClick={() => handleDelete(cat._id)}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="20"
@@ -109,6 +120,7 @@ function ManageBudgetModal(props) {
                 legend: {
                   display: true,
                   position: "right",
+                  fontColor: "#000000",
                 },
               }}
             />
