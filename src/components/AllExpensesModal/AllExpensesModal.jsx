@@ -33,11 +33,13 @@ function AllExpensesModal(props) {
               <th>Amount</th>
             </tr>
             {allExpenses.map((exp) => {
-              <tr key={exp.detail}>
-                <td>{exp.detail}</td>
-                <td>{exp.date}</td>
-                <td>{exp.amount}</td>
-              </tr>;
+              return (
+                <tr key={exp.detail}>
+                  <td>{exp.detail}</td>
+                  <td>{exp.date}</td>
+                  <td>{exp.amount}</td>
+                </tr>
+              );
             })}
           </table>
         </div>
