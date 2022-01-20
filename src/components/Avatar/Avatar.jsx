@@ -5,20 +5,31 @@ class Avatar extends Component {
   render() {
     return (
       <div className="AvatarWrapperWrapper">
-      <div className="AvatarWrapper">
-        <div id="NoPadding"className="nes-container is-rounded AvatarContainer ">
-          <div className="Circle">
-        
-          <img className="Avatar"
-            src="Images/female5.png"
-            alt="gril"
-          />
-          
-          <h2>Level: 5 </h2>
-          
+        <div className="AvatarWrapper">
+          <div id="NoPadding" className="nes-container is-rounded AvatarContainer ">
+            <div className="Circle">
+              <h2>{this.props.user.name}</h2>
+              <div className="innerCircle">
+                <img className="Avatar"
+                  src="Images/female5.png"
+                  alt="gril"
+                />
+              </div>
+              <div className="AvatarLevel">
+                <h2 className="LevelValue">Level: 5 </h2>
+              </div>
+              <div className="AvatarProgressBar">
+                <progress
+                  class="nes-progress is-success AvatarProgress"
+                  id="BarHeight"
+                  value={this.props.user.exp}
+                  max="100"
+                ></progress>
+                <h5>{this.props.user.exp}/2400xp</h5>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     );
   }

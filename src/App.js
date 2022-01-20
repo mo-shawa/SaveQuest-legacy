@@ -4,7 +4,7 @@ import Header from "./components/Header/Header"
 import AuthPage from "./pages/AuthPage/AuthPage";
 import MainAppPage from "./pages/MainAppPage/MainAppPage";
 import LandingPage from "./pages/LandingPage/LandingPage";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Outlet, Navigate } from "react-router-dom";
 
 
 
@@ -24,6 +24,10 @@ function App() {
     localStorage.removeItem('token')
   }
 
+  const ProtectedRoute = () => {
+    return user ? <Outlet /> : <Navigate to='/auth' />
+  }
+
   useEffect(() => {
     let token = localStorage.getItem('token')
     if (token) {
@@ -40,7 +44,9 @@ function App() {
 
       <Routes>
         <Route path='/auth' element={<AuthPage userLogout={userLogout} setUserInState={setUserInState} />} />
-        <Route path='/app' element={<MainAppPage />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path='/app' element={<MainAppPage setUserInState={setUserInState} user={user} />} />
+        </Route>
         <Route path='/landing' element={<LandingPage />} />
       </Routes>
     </div>
