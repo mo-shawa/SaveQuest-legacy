@@ -16,26 +16,44 @@ const createCat = async (req, res) => {
         console.log(updatedUser)
         res.status(200).json(updatedUser)
     } catch (error) {
-        console.log(error.message)
-        res.status(400).json(error.message)
+        console.log(error)
+        res.status(400).json(error)
     }
 
 
 }
 
-const deleteCat = (req, res) => {
+const deleteCat = async (req, res) => {
 
-    UserModel.findById(req.params.user_id).exec(function (err, user) {
-        let idx = user.budget.categories.findIndex(function (cat) {
-            return cat.id === req.params.cat_id
-        })
-        user.budget.categories.splice(idx, 1)
-        user.save(function (err) {
-            if (err) return console.log(err.message)
-            console.log(user)
-            return res.json(user)
-        })
-    })
+    try {
+
+        const user = await UserModel.findById(req.params.user_id)
+        const catIdx = user.budget.categories.findIndex(cat => cat.id === req.params.cat_id)
+
+        if (catIdx < 0) throw new Error('Category not found')
+
+        let deleted = user.budget.categories.splice(catIdx, 1)
+        const updatedUser = await user.save()
+        console.log('DELETED: ', deleted)
+
+        res.status(200).json(updatedUser)
+        // UserModel.findById(req.params.user_id).exec(function (err, user) {
+        //     let idx = user.budget.categories.findIndex(function (cat) {
+        //         return cat.id === req.params.cat_id
+        //     })
+        //     if (idx < 0) throw new Error('Category not found')
+
+        //     user.budget.categories.splice(idx, 1)
+        //     user.save(function (err) {
+        //         if (err) return console.log(err.message)
+        //         console.log(user)
+        //         return res.json(user)
+        //     })
+        // })
+    } catch (error) {
+        console.log(error.message)
+        res.status(400).json(error)
+    }
 
 
 }
