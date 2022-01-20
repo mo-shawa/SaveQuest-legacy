@@ -1,4 +1,5 @@
 const { ExpenseModel, UserModel, CategoryModel } = require('../models/user')
+const jwt = require('jsonwebtoken')
 
 const createExpense = async (req, res) => {
     try {
@@ -11,11 +12,10 @@ const createExpense = async (req, res) => {
         category.expenses.push(newExp)
         console.log(category)
         // category.save()
-        await user.save()
+        const updatedUser = await user.save()
 
-
-
-        return res.status(200).json(user)
+        const token = jwt.sign({ user: updatedUser }, process.env.SECRET, { expiresIn: '24h' })
+        res.status(200).json(token)
     } catch (error) {
         console.log(error.message)
         res.status(400).json(error.message)
@@ -33,10 +33,9 @@ const deleteExpense = async (req, res) => {
 
         let deleted = category.expenses.splice(expenseIdx, 1)
         const updatedUser = await user.save()
-        console.log('DELETED: ', deleted)
 
-        res.status(200).json(updatedUser)
-
+        const token = jwt.sign({ user: updatedUser }, process.env.SECRET, { expiresIn: '24h' })
+        res.status(200).json(token)
 
     } catch (error) {
         console.log(error.message)

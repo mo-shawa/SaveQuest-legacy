@@ -34,7 +34,9 @@ function LogExpenseModal(props) {
         })
       if (!fetchResponse.ok) throw new Error("Fetch failed - Bad request");
 
-      const userData = await fetchResponse.json()
+      const token = await fetchResponse.json();
+      localStorage.setItem('token', token)
+      const userData = JSON.parse(atob(token.split(".")[1])).user
       props.setUserInState(userData)
 
 

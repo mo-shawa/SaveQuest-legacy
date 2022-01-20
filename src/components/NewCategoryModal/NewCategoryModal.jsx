@@ -33,7 +33,9 @@ function NewCategoryModal(props) {
           })
         })
       if (!fetchResponse.ok) throw new Error("Fetch failed - Bad request");
-      const userData = await fetchResponse.json()
+      const token = await fetchResponse.json();
+      localStorage.setItem('token', token)
+      const userData = JSON.parse(atob(token.split(".")[1])).user
       // console.log(userData)
       props.setUserInState(userData)
       // let token = await fetchResponse.json();
