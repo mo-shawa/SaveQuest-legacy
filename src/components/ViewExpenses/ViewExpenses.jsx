@@ -8,7 +8,7 @@ function ViewExpenseModal(props) {
       <div className="SmallModal nes-container">
         <h2 className="ModalHeader">{props.category} Expenses</h2>
         <div onClick={() => props.viewModalOpen(false)} className="modal-close">
-          <span >X</span>
+          <span >x</span>
         </div>
         <div className="AllExpenseWrapper" id="ViewExpenseWrapper">
           <table>
