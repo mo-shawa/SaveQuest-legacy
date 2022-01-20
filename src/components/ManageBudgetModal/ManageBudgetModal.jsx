@@ -4,6 +4,25 @@ import { Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
 
 function ManageBudgetModal(props) {
+  const data = props.user.budget.categories;
+
+  const [chartData, setChartData] = useState({
+    labels: data.map((cat) => cat.name),
+    datasets: [
+      {
+        label: "Budget Allocation",
+        data: data.map((c) => c.max),
+        backgroundColor: [
+          "#ffbb11",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0",
+        ],
+      },
+    ],
+  });
+
   const handleDelete = async (cat_id) => {
     try {
       const fetchResponse = await fetch(
@@ -23,27 +42,9 @@ function ManageBudgetModal(props) {
     }
   };
 
-  useEffect(() => {
-    const data = props.user.budgets.categories;
-    setChartData({
-      labels: data.map((cat) => cat.name),
-      datasets: [
-        {
-          label: "Budget Allocation",
-          data: data.map((c) => c.max),
-          backgroundColor: [
-            "#ffbb11",
-            "#ecf0f1",
-            "#50AF95",
-            "#f3ba2f",
-            "#2a71d0",
-          ],
-        },
-      ],
-    });
-  }, []);
 
-  const [chartData, setChartData] = useState({});
+
+
 
   return (
     <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg"}>
