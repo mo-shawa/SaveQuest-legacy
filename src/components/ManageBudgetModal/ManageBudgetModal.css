@@ -84,9 +84,14 @@
   align-items: center;
 }
 hr {
-  border: 2px solid black;
+  border: 2px solid #222;
   opacity:75;
   margin-right: 6vw;
+}
+.Trash:hover{
+  fill: blue;
+  color: blue;
+  background-color: rgba(255,255,255,.3);
 }
 li {
   margin: 1.5vh 0;
@@ -174,9 +179,14 @@ label {
     font-size: 20px;
 }
 .CatLinks {
-  padding-left:10px;
+  
+  margin-left: 15px;
 }
 .CatLinks:hover{
   color: blue;
   background-color: rgba(255,255,255,.3);
+}
+.listItems{
+  display: flex;
+  align-items: center;
 }
