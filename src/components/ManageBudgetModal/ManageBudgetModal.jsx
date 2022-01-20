@@ -6,18 +6,31 @@ import "chart.js/auto";
 function ManageBudgetModal(props) {
   const data = props.user.budget.categories;
 
+
+
   const [chartData, setChartData] = useState({
     labels: data.map((cat) => cat.name),
     datasets: [
       {
         label: "Budget Allocation",
+        borderColor: "black",
         data: data.map((c) => c.max),
+        borderWidth:"4", 
+        textStrokeWidth:'12',
+        borderColor:"rgba(0, 0, 0, 1)",
         backgroundColor: [
-          "#ffbb11",
-          "#ecf0f1",
-          "#50AF95",
-          "#f3ba2f",
-          "#2a71d0",
+          "#ff82fd",
+          "#f7a334",
+          "#5dde62",
+          "#428def",
+          "#424aef",
+          "#efe742",
+          "#073ab0",
+          "#07b024",
+          "#b00738",
+          "#23fdec",
+          "#f2f11b",
+          "#fd5456",
         ],
       },
     ],
@@ -36,9 +49,9 @@ function ManageBudgetModal(props) {
       if (!fetchResponse.ok) throw new Error("Delete failed!");
 
       const token = await fetchResponse.json();
-      localStorage.setItem('token', token)
-      const userData = JSON.parse(atob(token.split(".")[1])).user
-      console.log(userData)
+      localStorage.setItem("token", token);
+      const userData = JSON.parse(atob(token.split(".")[1])).user;
+      console.log(userData);
       props.setUserInState(userData);
     } catch (error) {
       console.log(error.message);
@@ -49,8 +62,8 @@ function ManageBudgetModal(props) {
     <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg"}>
       <div className="BigModal nes-container is-primary">
         <h2 className="ModalHeader">Manage Budget</h2>
-        <div className="modal-close">
-          <span onClick={() => props.modalOpen(false)}>x</span>
+        <div onClick={() => props.modalOpen(false)} className="modal-close">
+          <span >x</span>
         </div>
         <div className="ModalDivider">
           <div className="ModaLinksWrapper">
@@ -67,7 +80,10 @@ function ManageBudgetModal(props) {
                 {props.user.budget.categories.map((cat) => {
                   return (
                     <div className="listItems">
-                      <span className="Trash" onClick={() => handleDelete(cat._id)}>
+                      <span
+                        className="Trash"
+                        onClick={() => handleDelete(cat._id)}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="20"
@@ -80,7 +96,7 @@ function ManageBudgetModal(props) {
                         </svg>{" "}
                       </span>
                       <li
-                        onClick={() => props.editModalOpen(true, cat.name)}
+                        onClick={() => props.editModalOpen(true, cat)}
                         catId={cat._id}
                         className="CatLinks"
                       >
@@ -95,6 +111,7 @@ function ManageBudgetModal(props) {
           <div className="PiChart">
             <Doughnut
               data={chartData}
+              
               options={{
                 title: {
                   display: true,
@@ -103,6 +120,7 @@ function ManageBudgetModal(props) {
                 legend: {
                   display: true,
                   position: "right",
+                  fontColor: "#000000",
                 },
               }}
             />

@@ -23,7 +23,7 @@
   height: 70%;
   border: 5px solid black;
   display: grid;
-  grid-template-rows: 1fr 4fr;
+  grid-template-rows: 1fr 5fr;
 }
 .ModalHeader {
   font-size: 28px;
@@ -31,13 +31,14 @@
 }
 .ModalDivider {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 45% 55%;
 }
 .PiChart {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  width: 100%;
+  margin-right:2vw;
 }
 .SmallModal {
   position: relative;
@@ -52,23 +53,43 @@
   display: grid;
   grid-template-rows: 1fr 4fr;
   z-index: 5;
+ 
+}
+canvas{
+  height:100%;
+  width: 100%;
+  margin-right:2vw;
+  margin-bottom:3vh;
+  padding:2vh
 }
 .modal-close {
   position: absolute;
   top: 2vh;
   right: 2vh;
-  font-size: 2vh;
-  color: white;
+  
+  color: rgb(237, 207, 251);
   cursor: pointer;
-
-  border: 4px solid rgb(5, 5, 5);
-  background-color: rgb(109, 35, 179);
+  border-radius: 50px;
+  background: -moz-linear-gradient(45deg, rgb(140, 0, 255), rgb(0, 119, 255));
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(153, 0, 255),
+    rgb(196, 148, 236)
+  );
+  border: 2px solid rgb(5, 5, 5);
+  font-family: monospace;
   width: 4vh;
   height: 4vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 900;
+  font-weight: 100;
+  font-size: 3vh;
+}
+.modal-close:hover{
+  background-color: #747cc5;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
 }
 .BigModalForm {
   height: 100%;
@@ -182,7 +203,7 @@ label {
   color: blue;
   background-color: rgba(255, 255, 255, 0.3);
 }
-.ManageLeftWrapper{
+.ManageLeftWrapper {
   height: 100%;
 }
 .listItems {
@@ -190,7 +211,7 @@ label {
   align-items: center;
 }
 .ListWrapper {
-  max-height:70%;
+  max-height: 70%;
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: auto;
@@ -207,4 +228,8 @@ label {
   background-color: rgba(202, 174, 238, 0.7); /* color of the scroll thumb */
   border-radius: 20px; /* roundness of the scroll thumb */
   border: 2px solid rgba(59, 59, 59, 0.8); /* creates padding around scroll thumb */
+}
+
+.doughnut {
+  border-color: black;
 }
