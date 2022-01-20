@@ -28,10 +28,15 @@ const deleteCat = async (req, res) => {
         if (catIdx < 0) throw new Error('Category not found')
         // Only way I could think of 
         let category = user.budget.categories[catIdx]
+
         if (category.expenses.length) {
-            let sumExpenses = category.expenses.reduce((exp1, exp2) => exp1.amount + exp2.amount)
-            console.log(sumExpenses)
-            user.budget.totalExp -= +sumExpenses
+            if (category.expenses.length === 1) {
+                user.budget.totalExp -= +category.expenses[0].amount
+            } else {
+                let sumExpenses = category.expenses.reduce((exp1, exp2) => exp1.amount + exp2.amount, 0)
+                console.log(sumExpenses)
+                user.budget.totalExp -= +sumExpenses
+            }
         }
         user.budget.total -= +user.budget.categories[catIdx].max
         let deleted = user.budget.categories.splice(catIdx, 1)
@@ -43,9 +48,8 @@ const deleteCat = async (req, res) => {
         console.log(error)
         res.status(400).json(error)
     }
-
-
 }
+
 const updateCat = async (req, res) => {
     try {
         const user = await UserModel.findById(req.params.user_id)

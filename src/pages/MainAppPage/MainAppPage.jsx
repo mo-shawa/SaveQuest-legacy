@@ -77,13 +77,13 @@ export default class MainAppPage extends Component {
               <div className="TotalBudgetTitle ">Total Budget</div>
               <div className="TotalBudgetProgress">
                 <div className="TotalBudgetValue">
-                  24/{this.props.user.budget.total}
+                  {this.props.user.budget.totalExp}/{this.props.user.budget.total}
                 </div>
                 <div className="TotalBudgetBar">
                   <progress
                     class="nes-progress is-primary"
                     id="Margin"
-                    value="80"
+                    value={this.props.user.budget.totalExp}
                     max={this.props.user.budget.total}
                   ></progress>
                 </div>
