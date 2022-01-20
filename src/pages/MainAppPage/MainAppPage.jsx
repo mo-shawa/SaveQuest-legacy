@@ -133,6 +133,8 @@ export default class MainAppPage extends Component {
         <AllExpensesModal
           isModalOpen={this.state.AllExpenseModalOpen}
           expenseModalOpen={this.triggerAllExpenseModalOpen}
+          expenses={this.state.expenses}
+          user={this.props.user}
         />
         <EditModal
           modalOpen={this.triggerEditModalOpen}

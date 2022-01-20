@@ -1,36 +1,47 @@
-import React, {useState} from "react";
-import "./AllExpensesModal.css"
+import React, { useEffect, useState } from "react";
+import "./AllExpensesModal.css";
 
 function AllExpensesModal(props) {
-    
+  const [allExpenses, setAllExpenses] = useState([]);
+
+  useEffect(() => {
+    console.log(props.user.budget.categories);
+    const expenseArray = props.user.budget.categories.map((category) => {
+      const tempArray = [];
+      category.expenses.forEach((expense) => {
+        tempArray.push(expense);
+      });
+      return tempArray;
+    });
+    const flatArray = expenseArray.flat();
+    console.log(flatArray);
+    setAllExpenses(flatArray);
+  }, [props]);
+
   return (
-    <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg " }>
+    <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg "}>
       <div className="BigModal nes-container">
         <h2 className="ModalHeader">All Expenses</h2>
-          <div className="modal-close">
-            <span onClick={() => props.expenseModalOpen(false)}>x</span>
-          </div>
-          <div className="AllExpenseWrapper">
-          
-              <table>
-                  <tr>
-                  <th>Item</th>
-                  <th>Date</th>
-                  <th>Amount</th>
-                  </tr>
-                  <tr>
-                      <td>Anime Pillow</td>
-                      <td>Yesterday</td>
-                      <td>200$</td>
-                  </tr>
-                  <tr>
-                      <td>Anime Pillow</td>
-                      <td>Yesterday</td>
-                      <td>200$</td>
-                  </tr>
-              </table>
-          
-          
+        <div className="modal-close">
+          <span onClick={() => props.expenseModalOpen(false)}>x</span>
+        </div>
+        <div className="AllExpenseWrapper">
+          <table>
+            <tr>
+              <th>Item</th>
+              <th>Date</th>
+              <th>Amount</th>
+            </tr>
+            {allExpenses.map((exp) => {
+              return (
+                <tr key={exp.detail}>
+                  <td>{exp.detail}</td>
+                  <td>{exp.date}</td>
+                  <td>{exp.amount}</td>
+                </tr>
+              );
+            })}
+          </table>
         </div>
       </div>
     </div>
