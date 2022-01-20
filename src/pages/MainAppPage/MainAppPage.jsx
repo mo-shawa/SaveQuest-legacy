@@ -20,30 +20,15 @@ export default class MainAppPage extends Component {
     WhichModalOpen: "",
     BeingLoggedTo: "",
     expenses: [],
-
-    test: {
-      labels: ["Food", "Housing", "Entertainment", "Crack", "Misc"],
-      datasets: [
-        {
-          backgroundColor: [
-            "#B21F00",
-            "#C9DE00",
-            "#2FDE00",
-            "#00A6B4",
-            "#6800B4",
-          ],
-          hoverBackgroundColor: [
-            "#501800",
-            "#4B5000",
-            "#175000",
-            "#003350",
-            "#35014F",
-          ],
-          data: [65, 59, 40, 81, 56],
-        },
-      ],
-    },
   };
+
+  HandleLevelling = () => {
+    const now = new Date();
+
+    console.log(now);
+
+  }
+
 
   OpenManageBudgetModal = (change) => {
     change === true
@@ -99,7 +84,7 @@ export default class MainAppPage extends Component {
                     class="nes-progress is-primary"
                     id="Margin"
                     value="80"
-                    max="100"
+                    max={this.props.user.budget.total}
                   ></progress>
                 </div>
               </div>
@@ -148,6 +133,8 @@ export default class MainAppPage extends Component {
         <AllExpensesModal
           isModalOpen={this.state.AllExpenseModalOpen}
           expenseModalOpen={this.triggerAllExpenseModalOpen}
+          expenses={this.state.expenses}
+          user={this.props.user}
         />
         <EditModal
           modalOpen={this.triggerEditModalOpen}

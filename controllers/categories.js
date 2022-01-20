@@ -1,49 +1,59 @@
 const { UserModel } = require('../models/user')
 const { CategoryModel } = require('../models/user')
-// const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 
 
 const createCat = async (req, res) => {
     try {
-        // console.log('Req body: ', req.body)
         const user = await UserModel.findById(req.params.user_id)
         const newCat = new CategoryModel(req.body)
-        // console.log(newCat)
         user.budget.categories.push(newCat)
+        user.budget.total += +req.body.max
         const updatedUser = await user.save()
-        // const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: '24h' })
-        // res.status(200).json(token)
-        console.log(updatedUser)
-        res.status(200).json(updatedUser)
+        //  START TOKEN
+        const token = jwt.sign({ user: updatedUser }, process.env.SECRET, { expiresIn: '24h' })
+        res.status(200).json(token)
     } catch (error) {
-        console.log(error.message)
-        res.status(400).json(error.message)
+        res.status(400).json(error)
     }
 
 
 }
 
-const deleteCat = (req, res) => {
-
-    UserModel.findById(req.params.user_id).exec(function (err, user) {
-        let idx = user.budget.categories.findIndex(function (cat) {
-            return cat.id === req.params.cat_id
-        })
-        user.budget.categories.splice(idx, 1)
-        user.save(function (err) {
-            if (err) return console.log(err.message)
-            console.log(user)
-            return res.json(user)
-        })
-    })
+// TOKENIZED
+const deleteCat = async (req, res) => {
+    try {
+        const user = await UserModel.findById(req.params.user_id)
+        const catIdx = user.budget.categories.findIndex(cat => cat.id === req.params.cat_id)
+        if (catIdx < 0) throw new Error('Category not found')
+        user.budget.total -= +user.budget.categories[catIdx].max
+        let deleted = user.budget.categories.splice(catIdx, 1)
+        const updatedUser = await user.save()
+        //  START TOKEN
+        const token = jwt.sign({ user: updatedUser }, process.env.SECRET, { expiresIn: '24h' })
+        res.status(200).json(token)
+    } catch (error) {
+        res.status(400).json(error)
+    }
 
 
 }
 const updateCat = async (req, res) => {
     try {
+        const user = await UserModel.findById(req.params.user_id)
+        const catIdx = user.budget.categories.findIndex(cat => cat.id === req.params.cat_id)
+        if (catIdx < 0) throw new Error('Category not found')
 
+        user.budget.total -= +user.budget.categories[catIdx].max
+        user.budget.total += +req.body.max
+        user.budget.categories[catIdx].name = req.body.name
+        user.budget.categories[catIdx].max = req.body.max
+
+        const updatedUser = await user.save()
+        const token = jwt.sign({ user: updatedUser }, process.env.SECRET, { expiresIn: '24h' })
+        res.status(200).json(token)
     } catch (error) {
-        console.log(error.message)
+        res.status(400).json(error)
     }
 }
 module.exports = {

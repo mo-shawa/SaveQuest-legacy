@@ -13,5 +13,6 @@ router.delete('/:user_id/categories/:cat_id', catsCtrl.deleteCat)
 router.put('/:user_id/categories/:cat_id', catsCtrl.updateCat)
 // Expense routes
 router.post('/:user_id/categories/:cat_id', expCtrl.createExpense)
+router.delete('/:user_id/categories/:cat_id/:exp_id', expCtrl.deleteExpense)
 
 module.exports = router

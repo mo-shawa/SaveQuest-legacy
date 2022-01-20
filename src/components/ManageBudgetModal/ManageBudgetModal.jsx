@@ -35,7 +35,10 @@ function ManageBudgetModal(props) {
 
       if (!fetchResponse.ok) throw new Error("Delete failed!");
 
-      const userData = await fetchResponse.json();
+      const token = await fetchResponse.json();
+      localStorage.setItem('token', token)
+      const userData = JSON.parse(atob(token.split(".")[1])).user
+      console.log(userData)
       props.setUserInState(userData);
     } catch (error) {
       console.log(error.message);
