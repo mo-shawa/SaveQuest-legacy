@@ -23,7 +23,7 @@ function Card(props) {
             <progress
               class="nes-progress is-primary"
               id="BarHeight"
-              value="80"
+              value={total}
               max={props.max}
             ></progress>
           </div>
