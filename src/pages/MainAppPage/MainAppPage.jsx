@@ -81,7 +81,7 @@ export default class MainAppPage extends Component {
                 </div>
                 <div className="TotalBudgetBar">
                   <progress
-                    class="nes-progress is-primary"
+                    class={this.props.user.budget.totalExp <= this.props.user.budget.total ? "nes-progress is-primary ProgressBar" : "nes-progress is-error ProgressBar"}
                     id="Margin"
                     value={this.props.user.budget.totalExp}
                     max={this.props.user.budget.total}

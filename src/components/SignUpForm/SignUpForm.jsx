@@ -60,8 +60,9 @@ function SignUpForm(props) {
   return (
     <div>
       <div className="form-container">
-        <form className="LoginForm" autoComplete="off" onSubmit={handleSubmit}>
-          <label>Name
+        <form className="SignupForm" autoComplete="off" onSubmit={handleSubmit}>
+          <label className="SignUpLabel" >Name</label>
+
             <input
               type="text"
               name="name"
@@ -69,8 +70,9 @@ function SignUpForm(props) {
               onChange={handleChange}
               required
             />
+          <label className="SignUpLabel">Email
           </label>
-          <label>Email
+
             <input
               type="email"
               name="email"
@@ -78,8 +80,7 @@ function SignUpForm(props) {
               onChange={handleChange}
               required
             />
-          </label>
-          <label>Password
+          <label className="SignUpLabel">Password</label>
             <input
               type="password"
               name="password"
@@ -87,8 +88,8 @@ function SignUpForm(props) {
               onChange={handleChange}
               required
             />
-          </label>
-          <label>Confirm
+          
+          <label className="SignUpLabel">Confirm</label>
             <input
               type="password"
               name="confirm"
@@ -96,7 +97,7 @@ function SignUpForm(props) {
               onChange={handleChange}
               required
             />
-          </label>
+          
           <button type="submit" disabled={disable}>
             SIGN UP
           </button>
