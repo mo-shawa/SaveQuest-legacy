@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import Header from "../../components/Header/Header";
 import Card from "../../components/Card/Card";
 import LogExpenseModal from "../../components/LogExpense/LogExpense";
 import ViewExpenseModal from "../../components/ViewExpenses/ViewExpenses";

@@ -97,7 +97,7 @@ function SignUpForm(props) {
               required
             />
           </label>
-          <button type="submit" disabled={disable}>
+          <button className="nes-btn" type="submit" disabled={disable}>
             SIGN UP
           </button>
         </form>

@@ -76,7 +76,7 @@ export default function SignUpForm(props) {
             onChange={handleChange}
             required
           />
-          <button type="submit">LOG IN</button>
+          <button className="nes-btn" type="submit">LOG IN</button>
         </form>
       </div>
       <p className="error-message">&nbsp;{form.error}</p>

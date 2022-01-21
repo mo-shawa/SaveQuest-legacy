@@ -3,7 +3,6 @@ import "./App.css";
 import Header from "./components/Header/Header"
 import AuthPage from "./pages/AuthPage/AuthPage";
 import MainAppPage from "./pages/MainAppPage/MainAppPage";
-import LandingPage from "./pages/LandingPage/LandingPage";
 import { Routes, Route, useNavigate, Outlet, Navigate } from "react-router-dom";
 
 
@@ -35,19 +34,20 @@ function App() {
       let userDoc = JSON.parse(atob(token.split('.')[1])).user;
       setUser(userDoc)
       navigate('/app')
-    } // would navigate to landing here if no token
+    } else {
+      navigate('/auth')
+    }
   }, [])
 
   return (
     <div className="App">
-      <Header user={user} />
+      <Header user={user} userLogout={userLogout} />
 
       <Routes>
         <Route path='/auth' element={<AuthPage userLogout={userLogout} setUserInState={setUserInState} />} />
         <Route element={<ProtectedRoute />}>
           <Route path='/app' element={<MainAppPage setUserInState={setUserInState} user={user} />} />
         </Route>
-        <Route path='/landing' element={<LandingPage />} />
       </Routes>
     </div>
   );
