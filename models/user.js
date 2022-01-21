@@ -29,6 +29,7 @@ const userSchema = new Schema({
   },
   budget: {
     total: Number,
+    totalExp: Number,
     categories: [categorySchema]
   },
   exp: Number,

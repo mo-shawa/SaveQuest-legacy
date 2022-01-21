@@ -10,6 +10,7 @@ const createExpense = async (req, res) => {
         console.log(newExp)
         let category = user.budget.categories.find(cat => cat.id === req.params.cat_id)
         category.expenses.push(newExp)
+        user.budget.totalExp += +req.body.amount
         console.log(category)
         // category.save()
         const updatedUser = await user.save()

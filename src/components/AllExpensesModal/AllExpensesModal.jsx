@@ -22,8 +22,8 @@ function AllExpensesModal(props) {
     <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg "}>
       <div className="BigModal nes-container">
         <h2 className="ModalHeader">All Expenses</h2>
-        <div className="modal-close">
-          <span onClick={() => props.expenseModalOpen(false)}>x</span>
+        <div onClick={() => props.expenseModalOpen(false)} className="modal-close">
+          <span >x</span>
         </div>
         <div className="AllExpenseWrapper">
           <table>
@@ -36,7 +36,7 @@ function AllExpensesModal(props) {
               return (
                 <tr key={exp.detail}>
                   <td>{exp.detail}</td>
-                  <td>{exp.date}</td>
+                  <td>{exp.createdAt.split('T')[0]}</td>
                   <td>{exp.amount}</td>
                 </tr>
               );

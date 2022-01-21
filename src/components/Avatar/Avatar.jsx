@@ -16,16 +16,16 @@ class Avatar extends Component {
                 />
               </div>
               <div className="AvatarLevel">
-                <h2 className="LevelValue">Level: 5 </h2>
+                <h2 className="LevelValue">Level: 3 </h2>
               </div>
               <div className="AvatarProgressBar">
                 <progress
                   class="nes-progress is-success AvatarProgress"
                   id="BarHeight"
-                  value={this.props.user.exp}
-                  max="100"
+                  value="1650"
+                  max="2400"
                 ></progress>
-                <h5>{this.props.user.exp}/2400xp</h5>
+                <h5>1650/2400xp</h5>
               </div>
             </div>
           </div>

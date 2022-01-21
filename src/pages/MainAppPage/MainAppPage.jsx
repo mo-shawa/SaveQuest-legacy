@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import Header from "../../components/Header/Header";
 import Card from "../../components/Card/Card";
 import LogExpenseModal from "../../components/LogExpense/LogExpense";
 import ViewExpenseModal from "../../components/ViewExpenses/ViewExpenses";
@@ -77,13 +76,13 @@ export default class MainAppPage extends Component {
               <div className="TotalBudgetTitle ">Total Budget</div>
               <div className="TotalBudgetProgress">
                 <div className="TotalBudgetValue">
-                  24/{this.props.user.budget.total}
+                  {this.props.user.budget.totalExp}/{this.props.user.budget.total}
                 </div>
                 <div className="TotalBudgetBar">
                   <progress
-                    class="nes-progress is-primary"
+                    class={this.props.user.budget.totalExp <= this.props.user.budget.total ? "nes-progress is-primary ProgressBar" : "nes-progress is-error ProgressBar"}
                     id="Margin"
-                    value="80"
+                    value={this.props.user.budget.totalExp}
                     max={this.props.user.budget.total}
                   ></progress>
                 </div>
@@ -140,7 +139,8 @@ export default class MainAppPage extends Component {
           modalOpen={this.triggerEditModalOpen}
           isModalOpen={this.state.EditModalOpen}
           user={this.props.user}
-          catName={this.state.WhichModalOpen}
+          cat={this.state.WhichModalOpen}
+          setUserInState={this.props.setUserInState}
         />
 
         <NewCategoryModal

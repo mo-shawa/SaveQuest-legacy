@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 
 function EditModal(props) {
   const [editCatForm, setEditCatForm] = useState({
-    name: props.catName,
-    max: "",
+    name: props.cat.name,
+    max: props.cat.max,
   });
 
   const handleChange = (evt) => {
@@ -17,28 +17,28 @@ function EditModal(props) {
     });
   };
 
+
   useEffect(() => {
     setEditCatForm((state) => {
       return {
-        name: props.catName
-
+        name: props.cat.name,
+        max: props.cat.max
       }
     })
-  }, [props.catName])
+  }, [props.cat.name])
 
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
       const fetchResponse = await fetch(
-        `/api/users/${props.user._id}/categories`,
+        `/api/users/${props.user._id}/categories/${props.cat._id}`,
         {
-          method: "POST",
+          method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             name: editCatForm.name,
             max: editCatForm.max,
-            expenses: [],
           }),
         }
       );
@@ -64,8 +64,8 @@ function EditModal(props) {
     <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg"}>
       <div className="BigModal nes-container">
         <h2 className="ModalHeader">Edit Category</h2>
-        <div className="modal-close">
-          <span onClick={() => props.modalOpen(false)}>X</span>
+        <div onClick={() => props.modalOpen(false)} className="modal-close">
+          <span >X</span>
         </div>
         <form className="BigModalForm" onSubmit={handleSubmit}>
           <label>Category</label>
