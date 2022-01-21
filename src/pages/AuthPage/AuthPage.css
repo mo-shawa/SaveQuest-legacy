@@ -11,8 +11,9 @@
 }
 .LoginContainer {
     max-height: 700px;
-    width:50%;
-    height:80%;
+    width:100%;
+    max-width: 800px;
+    height:100%;
     display: grid;
     grid-template-rows: 1fr 9fr;
     padding:5vh;

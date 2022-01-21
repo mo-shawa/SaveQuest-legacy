@@ -3,7 +3,7 @@
     height: 100%;
     background-color: #4C3779;
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 20% 60% 20%;
     overflow: hidden;
     border-bottom: 4px solid rgb(20, 0,30);
 }
@@ -27,7 +27,7 @@ a {
 }
 .LoginWrapper {
     display:flex;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
 }
 .Title {
