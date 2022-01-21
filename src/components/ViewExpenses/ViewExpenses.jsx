@@ -22,7 +22,7 @@ function ViewExpenseModal(props) {
               return (
                 <tr>
                   <td>{expense.detail}</td>
-                  <td>today</td>
+                  <td>{expense.createdAt.split('T')[0]}</td>
                   <td>{expense.amount}</td>
                 </tr>
               );

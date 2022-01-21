@@ -13,13 +13,8 @@ export default class AuthPage extends React.Component {
       <div id="AuthPage">
         <div className="LoginContainer">
           <div className="LoginHeader">
-            {/* <Logo /> */}
-            <h3
-              onClick={() =>
-                this.setState({ showLogin: !this.state.showLogin })
-              }
-            >
-              {this.state.showLogin ? "SIGN UP" : "LOG IN"}
+            <h3>
+              {this.state.showLogin ? "LOG IN" : "SIGN UP"}
             </h3>
           </div>
           <div className="LoginForm">
@@ -28,8 +23,10 @@ export default class AuthPage extends React.Component {
             ) : (
               <SignUpForm setUserInState={this.props.setUserInState} />
             )}
+            <span onClick={() =>
+              this.setState({ showLogin: !this.state.showLogin })
+            }>{this.state.showLogin ? 'Click here to Sign Up' : 'Click here to Log in'}</span>
           </div>
-          <button className="nes-btn" onClick={() => this.props.userLogout()}>LOGOUT</button>
         </div>
       </div>
     );

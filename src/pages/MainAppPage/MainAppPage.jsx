@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import Header from "../../components/Header/Header";
 import Card from "../../components/Card/Card";
 import LogExpenseModal from "../../components/LogExpense/LogExpense";
 import ViewExpenseModal from "../../components/ViewExpenses/ViewExpenses";
@@ -141,6 +140,7 @@ export default class MainAppPage extends Component {
           isModalOpen={this.state.EditModalOpen}
           user={this.props.user}
           cat={this.state.WhichModalOpen}
+          setUserInState={this.props.setUserInState}
         />
 
         <NewCategoryModal

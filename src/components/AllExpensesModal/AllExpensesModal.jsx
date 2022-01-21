@@ -36,7 +36,7 @@ function AllExpensesModal(props) {
               return (
                 <tr key={exp.detail}>
                   <td>{exp.detail}</td>
-                  <td>{exp.date}</td>
+                  <td>{exp.createdAt.split('T')[0]}</td>
                   <td>{exp.amount}</td>
                 </tr>
               );
