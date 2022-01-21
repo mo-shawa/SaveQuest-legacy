@@ -157,10 +157,11 @@ li {
 }
 .ModalInput {
   width: 70%;
+  max-width: 500px;
   border-radius: 0;
   border: 2px solid #222;
   height: 5vh;
-  margin-left: 2vw;
+  /* margin-left: 2vw; */
   color: #222;
 }
 .submit {

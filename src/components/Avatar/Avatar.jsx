@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import "./Avatar.css"
 
 class Avatar extends Component {
+  state = {
+    level: 1,
+    nextLevelExp: 100,
+    img: 'Images/female5.png'
+  }
   render() {
     return (
       <div className="AvatarWrapperWrapper">
@@ -22,10 +27,10 @@ class Avatar extends Component {
                 <progress
                   class="nes-progress is-success AvatarProgress"
                   id="BarHeight"
-                  value="1650"
+                  value={this.props.exp}
                   max="2400"
                 ></progress>
-                <h5>1650/2400xp</h5>
+                <h5>{this.props.exp}/2400xp</h5>
               </div>
             </div>
           </div>

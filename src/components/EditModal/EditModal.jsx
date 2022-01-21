@@ -71,7 +71,8 @@ function EditModal(props) {
           <label>Category</label>
           <input
             id="modal-input"
-            className="ModalInput"
+            className="nes-input"
+            style={{ maxWidth: "500px" }}
             type="text"
             value={editCatForm.name}
             name="name"
@@ -82,7 +83,8 @@ function EditModal(props) {
           <input
             name="max"
             id="modal-input"
-            className="ModalInput"
+            className="nes-input"
+            style={{ maxWidth: "500px" }}
             type="number"
             value={editCatForm.max}
             onChange={handleChange}

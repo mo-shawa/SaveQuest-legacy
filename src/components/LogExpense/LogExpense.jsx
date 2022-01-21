@@ -56,32 +56,38 @@ function LogExpenseModal(props) {
           className="modal-close "
         >
           <span >
-          x
+            x
           </span>
         </div>
         <form className="BigModalForm" onSubmit={handleSubmit}>
-          <label>
-            Detail:
+          <div className="nes-field">
+            <label>
+              Detail:
+            </label>
             <input
               id="modal-input"
-              className="ModalInput"
+              className="nes-input"
+              style={{ maxWidth: "500px" }}
               type="text"
               onChange={handleChange}
               name="detail"
               value={newExpenseForm.detail}
             />
-          </label>
-          <label>
-            Amount:
+          </div>
+          <div className="nes-field">
+            <label>
+              Amount:
+            </label>
             <input
               id="modal-input"
-              className="ModalInput"
+              className="nes-input"
+              style={{ maxWidth: "500px" }}
               onChange={handleChange}
               name="amount"
               value={newExpenseForm.amount}
               type="number"
             />
-          </label>
+          </div>
           <button className="submit nes-btn" type="submit">
             Submit
           </button>

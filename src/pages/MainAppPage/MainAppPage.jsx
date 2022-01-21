@@ -66,6 +66,7 @@ export default class MainAppPage extends Component {
     return (
       <div className="MainContainer">
         <Sidebar
+          exp={this.props.user.budget.totalExp}
           expenseModalOpen={this.triggerAllExpenseModalOpen}
           modalOpen={this.OpenManageBudgetModal}
           user={this.props.user}
