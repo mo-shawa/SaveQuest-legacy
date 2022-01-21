@@ -6,7 +6,7 @@ class Avatar extends Component {
     experience: this.props.exp,
     level: 1,
     nextLevelExp: 100,
-    img: 'Images/female5.png'
+    img: 'https://i.imgur.com/pFUwMYB.png'
   }
 
   componentDidMount() {
@@ -18,7 +18,7 @@ class Avatar extends Component {
           experience: (this.state.experience - this.state.nextLevelExp),
           level: state.level + 1,
           nextLevelExp: state.nextLevelExp * 2,
-          img: 'Images/female6.png'
+          img: 'Images/female5.png'
         }
       })
     }
@@ -28,7 +28,7 @@ class Avatar extends Component {
           ...state,
           level: 1,
           nextLevelExp: 100,
-          img: 'Images/female5.png'
+          img: 'https://i.imgur.com/pFUwMYB.png'
         }
       })
     }
