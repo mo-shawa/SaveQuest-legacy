@@ -18,7 +18,7 @@ class Avatar extends Component {
           experience: (this.state.experience - this.state.nextLevelExp),
           level: state.level + 1,
           nextLevelExp: state.nextLevelExp * 2,
-          img: 'Images/female7.png'
+          img: 'Images/female6.png'
         }
       })
     }
