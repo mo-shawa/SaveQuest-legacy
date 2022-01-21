@@ -8,9 +8,9 @@ https://savequest.herokuapp.com/app
 
 ## Screenshots
 
-![alt text] (https://i.imgur.com/DoRYGv5.png)
-![alt text] (https://i.imgur.com/esCYLPG.png)
-![alt text] (https://i.imgur.com/PzOjjSE.png)
+![alt text](https://i.imgur.com/DoRYGv5.png)
+![alt text](https://i.imgur.com/esCYLPG.png)
+![alt text](https://i.imgur.com/PzOjjSE.png)
 
 ## Technologies Used
 
