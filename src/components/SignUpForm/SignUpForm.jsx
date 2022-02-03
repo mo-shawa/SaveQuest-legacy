@@ -61,7 +61,9 @@ function SignUpForm(props) {
     <div>
       <div className="form-container">
         <form className="LoginForm" autoComplete="off" onSubmit={handleSubmit}>
-          <label>Name
+          <div className="nes-field">
+            <label>Name
+            </label>
             <input
               type="text"
               name="name"
@@ -69,8 +71,10 @@ function SignUpForm(props) {
               onChange={handleChange}
               required
             />
-          </label>
-          <label>Email
+          </div>
+          <div className="nes-field">
+            <label>Email
+            </label>
             <input
               type="email"
               name="email"
@@ -78,8 +82,10 @@ function SignUpForm(props) {
               onChange={handleChange}
               required
             />
-          </label>
-          <label>Password
+          </div>
+          <div className="nes-field">
+            <label>Password
+            </label>
             <input
               type="password"
               name="password"
@@ -87,8 +93,10 @@ function SignUpForm(props) {
               onChange={handleChange}
               required
             />
-          </label>
-          <label>Confirm
+          </div>
+          <div className="nes-field">
+            <label>Confirm
+            </label>
             <input
               type="password"
               name="confirm"
@@ -96,8 +104,8 @@ function SignUpForm(props) {
               onChange={handleChange}
               required
             />
-          </label>
-          <button type="submit" disabled={disable}>
+          </div>
+          <button style={{ marginTop: "15px" }} className="nes-btn" type="submit" disabled={disable}>
             SIGN UP
           </button>
         </form>

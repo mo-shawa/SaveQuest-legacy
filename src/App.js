@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header/Header"
 import AuthPage from "./pages/AuthPage/AuthPage";
 import MainAppPage from "./pages/MainAppPage/MainAppPage";
+import LandingPage from "./pages/LandingPage/LandingPage";
 import { Routes, Route, useNavigate, Outlet, Navigate } from "react-router-dom";
 
 
@@ -35,7 +36,7 @@ function App() {
       setUser(userDoc)
       navigate('/app')
     } else {
-      navigate('/auth')
+      navigate('/')
     }
   }, [])
 
@@ -44,6 +45,7 @@ function App() {
       <Header user={user} userLogout={userLogout} />
 
       <Routes>
+        <Route path='/' element={<LandingPage />} />
         <Route path='/auth' element={<AuthPage userLogout={userLogout} setUserInState={setUserInState} />} />
         <Route element={<ProtectedRoute />}>
           <Route path='/app' element={<MainAppPage setUserInState={setUserInState} user={user} />} />

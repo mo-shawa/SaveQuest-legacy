@@ -1,12 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ThreeCanvas from '../../components/ThreeCanvas/ThreeCanvas'
+import LandingOverlay from '../../components/LandingOverlay/LandingOverlay'
 
-export default class LandingPage extends Component {
-    render() {
-        return (
-            <div>
-                <ThreeCanvas/>
-            </div>
-        )
-    }
+export default function LandingPage() {
+
+    return (
+        <>
+            <ThreeCanvas />
+            <LandingOverlay />
+        </>
+    )
+
 }
+

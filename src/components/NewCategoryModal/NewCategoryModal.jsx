@@ -65,18 +65,18 @@ function NewCategoryModal(props) {
         <form className="BigModalForm" onSubmit={handleSubmit}>
           <label>
             Category</label>
-          <input id="modal-input" className="ModalInput" type="text" value={newCatForm.name} name="name" onChange={handleChange} />
+          <input id="modal-input" className="nes-input" type="text" value={newCatForm.name} name="name" onChange={handleChange} style={{ maxWidth: "500px" }} />
 
           <label>
             Budget</label>
           <input
             name="max"
             id="modal-input"
-            className="ModalInput"
+            className="nes-input"
+            style={{ maxWidth: "500px" }}
             type="number"
             value={newCatForm.max}
             onChange={handleChange}
-
           />
 
           <button className="nes-btn" type="submit">

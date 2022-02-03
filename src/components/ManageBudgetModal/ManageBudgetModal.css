@@ -55,7 +55,7 @@
   z-index: 5;
  
 }
-canvas{
+.PiChart > canvas{
   max-height:100%;
   max-width: 100%;
   margin-right:2vw;
@@ -157,10 +157,11 @@ li {
 }
 .ModalInput {
   width: 70%;
+  max-width: 500px;
   border-radius: 0;
   border: 2px solid #222;
   height: 5vh;
-  margin-left: 2vw;
+  /* margin-left: 2vw; */
   color: #222;
 }
 .submit {

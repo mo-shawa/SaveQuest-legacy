@@ -8,7 +8,6 @@ class Header extends Component {
         return (
             <div className='header'>
                 <div className='Filler'>
-
                 </div>
                 <div className='Title'>
                     <Link to='app'>
@@ -22,7 +21,6 @@ class Header extends Component {
                         : ''
                     }
                 </div>
-
             </div>
         )
     }

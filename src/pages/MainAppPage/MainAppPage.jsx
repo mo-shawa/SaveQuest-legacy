@@ -66,6 +66,7 @@ export default class MainAppPage extends Component {
     return (
       <div className="MainContainer">
         <Sidebar
+          exp={this.props.user.budget.totalExp}
           expenseModalOpen={this.triggerAllExpenseModalOpen}
           modalOpen={this.OpenManageBudgetModal}
           user={this.props.user}
@@ -80,7 +81,7 @@ export default class MainAppPage extends Component {
                 </div>
                 <div className="TotalBudgetBar">
                   <progress
-                    class={this.props.user.budget.totalExp <= this.props.user.budget.total ? "nes-progress is-primary ProgressBar" : "nes-progress is-error ProgressBar"}
+                    className={this.props.user.budget.totalExp <= this.props.user.budget.total ? "nes-progress is-primary ProgressBar" : "nes-progress is-error ProgressBar"}
                     id="Margin"
                     value={this.props.user.budget.totalExp}
                     max={this.props.user.budget.total}

@@ -1,10 +1,9 @@
 # SaveQuest
 
-SaveQuest is a save to win budgeting application that makes saving money fun! Users are able to set the amount of their budget then log their daily expenses under different categories. The user is then able to track how much of their budget they have spent so far and view how their expenses are allocated bewtween budgets on a graph. The more money you stay under your budget the more your character levels up, gaining cooler armor and better stats.
-
+SaveQuest is a Save to Win™ budgeting application that makes saving money fun! Players are able to set the amount of their budget then log their daily expenses under different categories. The player is then able to track how much of their budget they have spent so far and view how their expenses are allocated bewtween budgets on a graph. The player gets exp for every transaction they log (within their budget), encouraging them to stay consistent and log frequently!
 ## Get Started with The Link Below!
 
-https://savequest.herokuapp.com/app
+https://savequest.herokuapp.com
 
 ## Screenshots
 
@@ -22,6 +21,7 @@ https://savequest.herokuapp.com/app
 
 ## Future Updates
 
+- Experience system overhaul (Streaks, bonuses)
 - React Native
 - Three.JS
 - users able to create custom avatars

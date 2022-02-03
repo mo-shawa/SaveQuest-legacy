@@ -38,7 +38,6 @@ export default function SignUpForm(props) {
       if (!fetchResponse.ok) throw new Error("Fetch failed - Bad request");
 
       let token = await fetchResponse.json();
-      // localStorage.removeItem('token')
       localStorage.setItem("token", token);
 
       const userDoc = JSON.parse(atob(token.split(".")[1])).user;
@@ -62,11 +61,12 @@ export default function SignUpForm(props) {
         <form className="LoginForm" autoComplete="off">
           <label>Email:</label>
           <input
-            type="tex`t"
+            type="text"
             name="email"
             value={form.email}
             onChange={handleChange}
             required
+            className="nes-input"
           />
           <label>Password:</label>
           <input
@@ -75,6 +75,7 @@ export default function SignUpForm(props) {
             value={form.password}
             onChange={handleChange}
             required
+            className="nes-input"
           />
           <button className="nes-btn" type="submit">LOG IN</button>
         </form>

@@ -53,7 +53,7 @@ color: black;
 
 }
 .CardProgressValue{
-    width: 90%;
+margin-right: 5%;
 display: flex;
 justify-content: right;
 }
@@ -64,9 +64,6 @@ margin: 0 1vw;
 
 }
 
-.CardBtns{
-    
-}
 .CardBtn {
     width:40%;
     font-size:13px;
