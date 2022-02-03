@@ -1,7 +1,13 @@
-html, body, #root, canvas {
+html, body, #root {
   padding: 0;
   margin: 0;
   height:100vh;
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+
+canvas{
+  height:100%;
+  /* background-image: url(/public/Background.jpeg); */
+  background-color: #666666;
 }

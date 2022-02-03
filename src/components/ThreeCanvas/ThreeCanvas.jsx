@@ -1,18 +1,17 @@
-import React, { Suspense, useRef } from "react"
+import React, { Suspense } from "react"
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 import Dollar from "../Dollar/Dollar";
 
 export default function ThreeCanvas() {
     return (
-        <Canvas camera={{position: [100,0,0]}} >
-            <ambientLight intensity={0.3}/>
-            <spotLight position={[10,10,10]} />
+        <Canvas camera={{ position: [100, 0, 0] }} >
+            <ambientLight intensity={0.3} />
+            <spotLight position={[10, 10, 10]} />
             <Suspense fallback={null}>
-            <Dollar />
-
-            <OrbitControls />
+                <Dollar />
+                {/* <OrbitControls /> */}
             </Suspense>
-      </Canvas>
+        </Canvas>
     )
 }
