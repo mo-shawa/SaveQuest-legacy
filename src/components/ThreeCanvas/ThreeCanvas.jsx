@@ -9,12 +9,12 @@ function SkyBox() {
     const { scene } = useThree();
     const loader = new CubeTextureLoader();
     const texture = loader.load([
-        '/skybox/zeus_ft.jpg',
-        '/skybox/zeus_bk.jpg',
-        '/skybox/zeus_up.jpg',
-        '/skybox/zeus_dn.jpg',
-        '/skybox/zeus_rt.jpg',
-        '/skybox/zeus_lf.jpg',
+        '/skybox/zeus_ft.jpg', // front
+        '/skybox/zeus_bk.jpg', // back
+        '/skybox/zeus_up.jpg', // up
+        '/skybox/zeus_dn.jpg', // down 
+        '/skybox/zeus_rt.jpg', // right
+        '/skybox/zeus_lf.jpg', // left
     ])
     scene.background = texture;
     return null
