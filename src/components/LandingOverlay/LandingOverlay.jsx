@@ -12,8 +12,8 @@ export default function LandingOverlay() {
                     </div>
                 </div>
                 <div>
-                    <section class="message -left">
-                        <div class="nes-balloon">
+                    <section className="message -left">
+                        <div className="nes-balloon">
                             <p>Click that dollar to get started!</p>
                         </div>
                     </section>
