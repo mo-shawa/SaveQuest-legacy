@@ -6,8 +6,8 @@ export default function LandingPage() {
 
     return (
         <>
-            <LandingOverlay />
             <ThreeCanvas />
+            <LandingOverlay />
         </>
     )
 
