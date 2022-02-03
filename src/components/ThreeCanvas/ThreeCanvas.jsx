@@ -12,7 +12,7 @@ export default function ThreeCanvas(props) {
             <spotLight position={[10, 10, 10]} />
             <Suspense fallback={null}>
                 <Dollar onClick={() => navigate('auth')} />
-                <OrbitControls />
+                <OrbitControls enableZoom={false} />
             </Suspense>
         </Canvas>
     )

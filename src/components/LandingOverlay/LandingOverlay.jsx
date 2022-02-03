@@ -6,11 +6,17 @@ export default function LandingOverlay() {
         <div className={styles.overlay}>
             <div className={styles.container}>
                 <div>
-                    <h1 className={styles.headline}>WELCOME TO SAVEQUEST</h1>
-                    <h3 className={styles.headline}>It's Save to Win!</h3>
+                    <div className="nes-container is-rounded" style={{ background: "#00000080" }}>
+                        <h1 className={styles.headline}>WELCOME TO SAVEQUEST</h1>
+                        <h3 className={styles.subtitle}>It's Save to Win!</h3>
+                    </div>
                 </div>
                 <div>
-                    <h2 className={styles.headline}>Click the cash to get started!</h2>
+                    <section class="message -left">
+                        <div class="nes-balloon">
+                            <p>Click that dollar to get started!</p>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
