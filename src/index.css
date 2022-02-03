@@ -8,6 +8,5 @@ html, body, #root {
 
 canvas{
   height:100%;
-  /* background-image: url(/public/Background.jpeg); */
-  background-color: #666666;
+  background-size: cover;
 }

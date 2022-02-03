@@ -6,6 +6,7 @@
     grid-template-columns: 20% 60% 20%;
     overflow: hidden;
     border-bottom: 4px solid rgb(20, 0,30);
+    z-index: 20;
 }
 @font-face {
     font-family: 'Press Start 2P';

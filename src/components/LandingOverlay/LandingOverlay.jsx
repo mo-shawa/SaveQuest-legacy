@@ -5,10 +5,12 @@ export default function LandingOverlay() {
     return <>
         <div className={styles.overlay}>
             <div className={styles.container}>
-                <h1 className={styles.headline}>Hello</h1>
                 <div>
-                    <h2 className={styles.headline}>Wanna save some money?</h2>
-                    <button className='nes-btn is-success'> Yes</button>
+                    <h1 className={styles.headline}>WELCOME TO SAVEQUEST</h1>
+                    <h3 className={styles.headline}>It's Save to Win!</h3>
+                </div>
+                <div>
+                    <h2 className={styles.headline}>Click the cash to get started!</h2>
                 </div>
             </div>
         </div>
