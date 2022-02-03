@@ -5,7 +5,7 @@ class Avatar extends Component {
   state = {
     experience: this.props.exp,
     level: 1,
-    nextLevelExp: 100,
+    nextLevelExp: 1000,
     img: 'https://i.imgur.com/pFUwMYB.png'
   }
 
@@ -22,12 +22,12 @@ class Avatar extends Component {
         }
       })
     }
-    if (this.props.exp < 100) {
+    if (this.props.exp < 1000) {
       this.setState((state) => {
         return {
           ...state,
           level: 1,
-          nextLevelExp: 100,
+          nextLevelExp: 1000,
           img: 'https://i.imgur.com/pFUwMYB.png'
         }
       })
