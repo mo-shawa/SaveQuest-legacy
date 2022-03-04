@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './LandingOverlay.module.css'
 
 export default function LandingOverlay() {
-    return <>
+    return (
         <div className={styles.overlay}>
             <div className={styles.container}>
                 <div>
@@ -14,11 +14,11 @@ export default function LandingOverlay() {
                 <div>
                     <section className="message -left">
                         <div className="nes-balloon">
-                            <p>Click that dollar to get started!</p>
+                            <p>Click the dollar to get started!</p>
                         </div>
                     </section>
                 </div>
             </div>
         </div>
-    </>;
+    )
 }
