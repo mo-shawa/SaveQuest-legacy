@@ -16,20 +16,28 @@ function SkyBox() {
         '/skybox/zeus_rt.jpg', // right
         '/skybox/zeus_lf.jpg', // left
     ])
-    scene.background = texture;
+    // scene.background = texture;
+    // scene.background = "#ffffff"
     return null
 }
 
-export default function ThreeCanvas(props) {
+export default function ThreeCanvas() {
     const navigate = useNavigate()
     return (
-        <Canvas camera={{ position: [100, 0, 0] }} >
-            <SkyBox />
+        <Canvas camera={{ position: [100, 50, 0] }} >
+            {/* <SkyBox /> */}
+            <color attach="background" args={['blue']} />
             <ambientLight intensity={0.3} />
-            <spotLight position={[10, 10, 10]} />
+            <pointLight position={[10, 10, 10]} />
             <Suspense fallback={null}>
                 <Dollar onClick={() => navigate('auth')} />
-                <OrbitControls enableZoom={false} autoRotate={true} autoRotateSpeed={0.5} enableDamping={true} />
+                <OrbitControls
+                    enableZoom={false}
+                    minPolarAngle={0}
+                    maxPolarAngle={0.5 * Math.PI}
+                    autoRotate={true}
+                    autoRotateSpeed={0.5}
+                    enableDamping={true} />
             </Suspense>
         </Canvas>
     )

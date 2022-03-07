@@ -15,9 +15,9 @@ function ManageBudgetModal(props) {
         label: "Budget Allocation",
         borderColor: "black",
         data: data.map((c) => c.max),
-        borderWidth:"4", 
-        textStrokeWidth:'12',
-        borderColor:"rgba(0, 0, 0, 1)",
+        borderWidth: "4",
+        textStrokeWidth: '12',
+        borderColor: "rgba(0, 0, 0, 1)",
         backgroundColor: [
           "#ff82fd",
           "#f7a334",
@@ -59,7 +59,7 @@ function ManageBudgetModal(props) {
   };
 
   return (
-    <div className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg"}>
+    <div onClick={() => props.modalOpen(false)} className={props.isModalOpen ? "modal-bg bg-active" : "modal-bg"}>
       <div className="BigModal nes-container is-primary">
         <h2 className="ModalHeader">Manage Budget</h2>
         <div onClick={() => props.modalOpen(false)} className="modal-close">
@@ -111,7 +111,7 @@ function ManageBudgetModal(props) {
           <div className="PiChart">
             <Doughnut
               data={chartData}
-              
+
               options={{
                 title: {
                   display: true,

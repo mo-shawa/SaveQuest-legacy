@@ -10,7 +10,7 @@ class Header extends Component {
                 <div className='Filler'>
                 </div>
                 <div className='Title'>
-                    <Link to='app'>
+                    <Link to={this.props.user ? 'app' : '/'}>
                         <img className='TitleImg' src="/Images/cooltext402280913904255.png" alt="fe" srcset="" />
 
                     </Link>

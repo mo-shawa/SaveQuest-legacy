@@ -29,10 +29,14 @@ export default class MainAppPage extends Component {
   }
 
 
-  OpenManageBudgetModal = (change) => {
-    change === true
-      ? this.setState({ ManageBudgetModalOpen: true })
-      : this.setState({ ManageBudgetModalOpen: false });
+  // OpenManageBudgetModal = (change) => {
+  //   change === true
+  //     ? this.setState({ ManageBudgetModalOpen: true })
+  //     : this.setState({ ManageBudgetModalOpen: false });
+  // };
+
+  OpenManageBudgetModal = () => {
+    this.setState({ ManageBudgetModalOpen: !this.state.ManageBudgetModalOpen })
   };
 
   triggerLogExpenseModalOpen = (change, loggingTo) => {
