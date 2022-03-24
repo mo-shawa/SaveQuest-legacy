@@ -9,12 +9,12 @@ function SkyBox() {
     const { scene } = useThree();
     const loader = new CubeTextureLoader();
     const texture = loader.load([
-        '/skybox/zeus_ft.jpg', // front
-        '/skybox/zeus_bk.jpg', // back
-        '/skybox/zeus_up.jpg', // up
-        '/skybox/zeus_dn.jpg', // down 
-        '/skybox/zeus_rt.jpg', // right
-        '/skybox/zeus_lf.jpg', // left
+        '/skybox//river_walk_1/pix/posx.png', // front
+        '/skybox//river_walk_1/pix/negx.png', // back
+        '/skybox//river_walk_1/pix/posy.png', // up
+        '/skybox//river_walk_1/pix/negy.png', // down 
+        '/skybox//river_walk_1/pix/posz.png', // right
+        '/skybox//river_walk_1/pix/negz.png', // left
     ])
     scene.background = texture;
     return null
