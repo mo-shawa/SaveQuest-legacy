@@ -11,7 +11,7 @@ class Header extends Component {
                 </div>
                 <div className='Title'>
                     <Link to='app'>
-                        <img className='TitleImg' src="/Images/cooltext402280913904255.png" alt="fe" srcset="" />
+                        <img className='TitleImg' src="/Images/cooltext402280913904255.png" alt="Save Quest" />
 
                     </Link>
                 </div>

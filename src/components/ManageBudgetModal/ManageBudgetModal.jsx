@@ -5,7 +5,7 @@ import "chart.js/auto";
 
 function ManageBudgetModal(props) {
   const data = props.user.budget.categories;
-
+  const jwt = localStorage.getItem('token')
 
 
   const [chartData, setChartData] = useState({
@@ -15,9 +15,9 @@ function ManageBudgetModal(props) {
         label: "Budget Allocation",
         borderColor: "black",
         data: data.map((c) => c.max),
-        borderWidth:"4", 
-        textStrokeWidth:'12',
-        borderColor:"rgba(0, 0, 0, 1)",
+        borderWidth: "4",
+        textStrokeWidth: '12',
+        borderColor: "rgba(0, 0, 0, 1)",
         backgroundColor: [
           "#ff82fd",
           "#f7a334",
@@ -42,7 +42,10 @@ function ManageBudgetModal(props) {
         `/api/users/${props.user._id}/categories/${cat_id}`,
         {
           method: "DELETE",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + jwt
+          },
         }
       );
 
@@ -111,7 +114,7 @@ function ManageBudgetModal(props) {
           <div className="PiChart">
             <Doughnut
               data={chartData}
-              
+
               options={{
                 title: {
                   display: true,

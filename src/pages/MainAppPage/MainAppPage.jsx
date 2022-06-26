@@ -21,7 +21,7 @@ export default class MainAppPage extends Component {
     expenses: [],
   };
 
-  HandleLevelling = () => {
+  handleLevelling = () => {
     const now = new Date();
 
     console.log(now);

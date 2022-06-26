@@ -21,11 +21,15 @@ function LogExpenseModal(props) {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
+      const jwt = localStorage.getItem('token')
       const fetchResponse = await fetch(
         `/api/users/${props.user._id}/categories/${props.id}`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + jwt
+          },
           body: JSON.stringify({
             amount: newExpenseForm.amount,
             detail: newExpenseForm.detail,

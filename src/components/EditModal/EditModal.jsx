@@ -31,11 +31,15 @@ function EditModal(props) {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
+      const jwt = localStorage.getItem('token')
       const fetchResponse = await fetch(
         `/api/users/${props.user._id}/categories/${props.cat._id}`,
         {
           method: "PUT",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + jwt
+          },
           body: JSON.stringify({
             name: editCatForm.name,
             max: editCatForm.max,
