@@ -21,7 +21,7 @@ function Card(props) {
           </div>
           <div className="CardProgressBar">
             <progress
-              class={total <= props.max ? "nes-progress is-primary ProgressBar" : "nes-progress is-error ProgressBar"}
+              className={total <= props.max ? "nes-progress is-primary ProgressBar" : "nes-progress is-error ProgressBar"}
               id="BarHeight"
               value={total}
               max={props.max}

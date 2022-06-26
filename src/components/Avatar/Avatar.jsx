@@ -53,7 +53,7 @@ class Avatar extends Component {
               </div>
               <div className="AvatarProgressBar">
                 <progress
-                  class="nes-progress is-success AvatarProgress"
+                  className="nes-progress is-success AvatarProgress"
                   id="BarHeight"
                   value={this.state.experience}
                   max={this.state.nextLevelExp}

@@ -12,21 +12,25 @@ function ViewExpenseModal(props) {
         </div>
         <div className="AllExpenseWrapper" id="ViewExpenseWrapper">
           <table>
-            <tr>
-              <th>Item</th>
-              <th>Date</th>
-              <th>Amount</th>
-            </tr>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Date</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
 
-            {props.expenses.map((expense) => {
-              return (
-                <tr>
-                  <td>{expense.detail}</td>
-                  <td>{expense.createdAt.split('T')[0]}</td>
-                  <td>{expense.amount}</td>
-                </tr>
-              );
-            })}
+            <tbody>
+              {props.expenses.map((expense) => {
+                return (
+                  <tr>
+                    <td>{expense.detail}</td>
+                    <td>{expense.createdAt.split('T')[0]}</td>
+                    <td>{expense.amount}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
           </table>
         </div>
       </div>

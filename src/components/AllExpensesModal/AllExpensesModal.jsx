@@ -27,20 +27,24 @@ function AllExpensesModal(props) {
         </div>
         <div className="AllExpenseWrapper">
           <table>
-            <tr>
-              <th>Item</th>
-              <th>Date</th>
-              <th>Amount</th>
-            </tr>
-            {allExpenses.map((exp) => {
-              return (
-                <tr key={exp.detail}>
-                  <td>{exp.detail}</td>
-                  <td>{exp.createdAt.split('T')[0]}</td>
-                  <td>{exp.amount}</td>
-                </tr>
-              );
-            })}
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Date</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {allExpenses.map((exp) => {
+                return (
+                  <tr key={exp.detail}>
+                    <td>{exp.detail}</td>
+                    <td>{exp.createdAt.split('T')[0]}</td>
+                    <td>{exp.amount}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
           </table>
         </div>
       </div>
