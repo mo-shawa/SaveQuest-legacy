@@ -25,10 +25,13 @@ export default function SignUpForm(props) {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
+    const jwt = localStorage.getItem('token')
     try {
       const fetchResponse = await fetch("/api/users/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({
           email: form.email,
           password: form.password,

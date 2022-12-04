@@ -21,7 +21,7 @@ export default class MainAppPage extends Component {
     expenses: [],
   };
 
-  HandleLevelling = () => {
+  handleLevelling = () => {
     const now = new Date();
 
     console.log(now);
@@ -95,6 +95,7 @@ export default class MainAppPage extends Component {
               {this.props.user.budget.categories.map((cat) => {
                 return (
                   <Card
+                    key={cat._id}
                     expenses={cat.expenses}
                     modalOpen={this.triggerLogExpenseModalOpen}
                     viewModalOpen={this.triggerViewExpenseModalOpen}

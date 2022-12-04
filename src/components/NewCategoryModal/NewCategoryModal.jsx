@@ -21,11 +21,15 @@ function NewCategoryModal(props) {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
+    const jwt = localStorage.getItem('token')
     try {
       const fetchResponse = await fetch(`/api/users/${props.user._id}/categories`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + jwt
+          },
           body: JSON.stringify({
             name: newCatForm.name,
             max: newCatForm.max,

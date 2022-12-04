@@ -18,6 +18,6 @@ module.exports = function (req, res, next) {
       }
     });
   } else {
-    next();
+    res.status(401).json("Token suck");
   }
 };
