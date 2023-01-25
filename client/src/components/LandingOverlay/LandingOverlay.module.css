@@ -1,0 +1,37 @@
+.headline{
+    color:white;
+    text-align: center;
+    background-color: #00000080;
+    padding:5px;
+    margin-bottom: 15px;
+
+    
+}
+
+.subtitle{
+    color:white;
+    text-align: center;
+    
+}
+
+.overlay{
+    position:absolute;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height:100%;
+    /* background-image: url(/public/Background.jpeg); */
+    background-size: cover;
+    pointer-events: none;
+}
+
+.container{
+    height:60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+}

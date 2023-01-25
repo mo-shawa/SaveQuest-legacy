@@ -1,0 +1,72 @@
+.CardWrapper{
+    display: flex;
+    justify-content: center;
+}
+.CardContainer {
+    width:70%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    justify-content: flex-start;
+}
+.CardContainer::-webkit-scrollbar{
+width:19px;
+
+}
+.CardContainer::-webkit-scrollbar-track {
+    background: rgba(234, 221, 251, 0.5);
+    border-radius: 20px;   
+        /* color of the tracking area */
+  }
+  .CardContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(202, 174, 238, 0.7);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 2px solid rgba(59, 59, 59, 0.8);  /* creates padding around scroll thumb */
+  }
+.CardBox {
+    width:50%;
+    display: flex;
+    height:250px;
+    margin-bottom: 30px;
+    
+}
+.Card {
+    width:95%;
+    background-color: rgba(228, 209, 253, 0.9);;
+    display: grid;
+    grid-template-rows: 31% 33% 35%;
+    
+}
+.CardTitle{
+display: flex;
+justify-content: center;
+margin-top: 2.5vh;
+font-size: 19px;
+color: black;
+}
+.CardProgress{
+    display: Grid;
+    grid-template-rows: 2fr 7fr;
+
+}
+.CardProgressValue{
+margin-right: 5%;
+display: flex;
+justify-content: right;
+}
+.CardProgressBar{
+display: flex;
+align-items: flex-end;
+margin: 0 1vw;
+
+}
+
+.CardBtn {
+    width:40%;
+    font-size:13px;
+    Margin:5%;
+    height:62%
+}
