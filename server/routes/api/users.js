@@ -1,10 +1,14 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 const usersCtrl = require('../../controllers/users')
-const catsCtrl = require('../../controllers/categories');
+const catsCtrl = require('../../controllers/categories')
 const expCtrl = require('../../controllers/expenses')
 const protectedRoute = require('../../config/auth')
 
+// Test route
+router.get('/', (req, res) => {
+	res.send('hope')
+})
 // Authentication routes
 router.post('/signup', usersCtrl.create)
 router.post('/login', usersCtrl.login)
